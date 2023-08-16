@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.define "pipeline" do |pipe|
         pipe.vm.hostname = "jenkins"
-        pipe.vm.provider "virtuaimageox" do |vb|
+        pipe.vm.provider "virtualbox" do |vb|
             vb.name = "jenkins"
             vb.cpus = 4
             vb.memory = 8192
@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
             vb.cpus = 2
             vb.memory = 4096
         end
-        front.vm.network "private_network", ip: "192.168.77.12"
+        front.vm.network "private_network", ip: "192.168.17.104"
         front.vm.network "public_network"
         front.vm.provision "shell", 
         inline: "/bin/bash /vagrant/shell/common/vagrant.sh front"
