@@ -96,7 +96,18 @@ sudo sysctl --system
 
 ####################
 # install cri-o
-curl https://raw.githubusercontent.com/cri-o/cri-o/main/scripts/get | bash
+
+# following will be needed
+# sudo loginctl enable-linger $(whoami) 
+# OR bash --cgroup-manager=cgroupfs
+
+sudo loginctl enable-linger $(whoami)
+# sudo chown -R $(whoami):$(whoami) /var/lib/containers/
+
+_CRIO_ROOTLESS=1
+
+# curl https://raw.githubusercontent.com/cri-o/cri-o/main/scripts/get | bash
+curl https://raw.githubusercontent.com/cri-o/cri-o/main/scripts/get | sudo bash
 
 ####################
 # USE the distribution's runc
