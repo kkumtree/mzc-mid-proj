@@ -20,4 +20,14 @@ sudo apt-get update -yqq && sudo apt-get -yqq upgrade
 
 TYPE="$1"
 
+####################
 
+# install apt-get
+
+/bin/bash /vagrant/shell/common/essential-package.sh
+
+####################
+
+# install cri-o
+
+/bin/bash /vagrant/shell/package/crio/install.sh
