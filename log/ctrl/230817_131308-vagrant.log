@@ -1,0 +1,7 @@
+==== Start /vagrant/shell/common/vagrant.sh at /root ====
+no crontab for root
+=============================================
+=== !WAIT!: cronjob for ubuntu_full_upgrade.sh
+=============================================
+==== Complete /vagrant/shell/common/vagrant.sh at /root ====
+Rebooting.
