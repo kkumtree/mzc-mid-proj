@@ -31,3 +31,13 @@ TYPE="$1"
 # install cri-o
 
 /bin/bash /vagrant/shell/package/crio/install.sh
+
+####################
+
+# install podman
+
+/bin/bash /vagrant/shell/package/podman/install.sh
+
+# login dockerhub
+
+/bin/bash /vagrant/shell/package/podman/login-docker.sh

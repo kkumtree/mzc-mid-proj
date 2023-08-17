@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
             vb.memory = 8192
         end
         pipe.vm.network "private_network", ip: "192.168.17.101"
-        img.vm.network "public_network"
+        pipe.vm.network "public_network"
         pipe.vm.provision "shell", 
         inline: "/bin/bash /vagrant/shell/common/vagrant.sh pipe"
     end
