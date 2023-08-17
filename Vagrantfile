@@ -4,56 +4,60 @@
 Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/jammy64"
 
-    config.vm.define "pipe" do |pipe|
-        pipe.vm.hostname = "jenkins"
-        pipe.vm.provider "virtualbox" do |vb|
-            vb.name = "jenkins"
+    config.vm.define "ctr" do |ctrl|
+        ctrl.vm.hostname = "kube-controller"
+        ctrl.vm.provider "virtualbox" do |vb|
+            vb.name = "kube-control"
             vb.cpus = 4
             vb.memory = 8192
         end
-        pipe.vm.network "private_network", ip: "192.168.17.101"
-        pipe.vm.network "public_network"
-        pipe.vm.provision "shell", 
-        inline: "/bin/bash /vagrant/shell/common/vagrant.sh pipe" 
+        ctrl.vm.network "private_network", ip: "192.168.17.101"
+        ctrl.vm.provision "shell", 
+            inline: "/bin/bash /vagrant/shell/common/vagrant.sh ctrl"
     end
 
-    config.vm.define "img" do |img|
-        img.vm.hostname = "registry"
-        img.vm.provider "virtualbox" do |vb|
-            vb.name = "registry"
-            vb.cpus = 2
+    config.vm.define "wn1" do |wn1|
+        wn1.vm.hostname = "kube-worker-node1"
+        wn1.vm.provider "virtualbox" do |vb|
+            vb.name = "kube-worker-node1"
+            vb.cpus = 4
             vb.memory = 4096
         end
-        img.vm.network "private_network", ip: "192.168.17.102"
-        img.vm.network "public_network"
-        img.vm.provision "shell", 
-        inline: "/bin/bash /vagrant/shell/common/vagrant.sh img"
-    end 
-
-    config.vm.define "nfs" do |nfs|
-        nfs.vm.hostname = "storage"
-        nfs.vm.provider "virtualbox" do |vb|
-            vb.name = "storage"
-            vb.cpus = 2
+        wn1.vm.network "private_network", ip: "192.168.17.102"
+        wn1.vm.provision "shell", inline: <<-SCRIPT
+            mkdir -p /home/vagrant/shell/
+            sudo cp -r /vagrant/shell/3-kube-nodes/. /home/vagrant/shell/
+            /bin/bash /home/vagrant/shell/nodes-full-upgrade.sh
+        SCRIPT
+        end
+    
+    config.vm.define "wn2" do |wn2|
+        wn2.vm.hostname = "kube-worker-node2"
+        wn2.vm.provider "virtualbox" do |vb|
+            vb.name = "kube-worker-node2"
+            vb.cpus = 4
             vb.memory = 4096
         end
-        nfs.vm.network "private_network", ip: "192.168.17.103"
-        nfs.vm.network "public_network"
-        nfs.vm.provision "shell", 
-        inline: "/bin/bash /vagrant/shell/common/vagrant.sh nfs"
+        wn2.vm.network "private_network", ip: "192.168.10.103"
+        wn2.vm.provision "shell", inline: <<-SCRIPT
+            mkdir -p /home/vagrant/shell/
+            sudo cp -r /vagrant/shell/3-kube-nodes/. /home/vagrant/shell/
+            /bin/bash /home/vagrant/shell/nodes-full-upgrade.sh
+        SCRIPT
     end
     
-    config.vm.define "frontend" do |front|
-        front.vm.hostname = "frontend"
-        front.vm.provider "virtualbox" do |vb|
-            vb.name = "frontend"
+    # nginx LB 기능 활용해서 NodePosrt 로 공개된 모든 노드에 서비스 배포
+    config.vm.define "nginx-lb" do |lb|
+        lb.vm.hostname = "nginx-lb"
+        lb.vm.provider "virtualbox" do |vb|
+            vb.name = "nginx-lb"
             vb.cpus = 2
             vb.memory = 4096
         end
-        front.vm.network "private_network", ip: "192.168.17.104"
-        front.vm.network "public_network"
-        front.vm.provision "shell", 
-        inline: "/bin/bash /vagrant/shell/common/vagrant.sh front"
+        lb.vm.network "private_network", ip: "192.168.10.14"
+        lb.vm.network "public_network"
+        lb.vm.provision "shell", inline: <<-SCRIPT
+            sudo apt-get -yqq update && sudo apt-get -yqq install nginx
+        SCRIPT
     end
-
 end

@@ -4,15 +4,15 @@ DEBIAN_FRONTEND=noninteractive
 
 if [ $# -ne 1 ]; then
   echo "Usage: $0 <type>"
-  echo "type: [ctrl|lb|node]"
+  echo "type: [ctrl|node|lb]"
   exit 1
 fi
 
 CURRENT_SHELL_NAME=`basename $0 | sed -e 's/\.sh//g'`
 TYPE=$1
 
-# sudo mount -a
-# sleep 10
+sudo mount -a
+sleep 10
 
 #### START Logging Template ####
 
@@ -29,35 +29,35 @@ exec 3>&1 4>&2
 trap 'exec 2>&4 1>&3' 0 1 2 3
 exec 1>$LOG_PATH 2>&1
 
-### Next Job 
+### Next Job
 
 USER="vagrant"
 USER_HOME="/home/$USER"
 USER_SHELL_DIR="$USER_HOME/shell"
-USER_VARIABLE_DIR="$USER_HOME/variable"
+# USER_VARIABLE_DIR="$USER_HOME/variable"
 
-NEXT_JOB="@reboot sudo -u $USER"
-NEXT_SHELL="ubuntu_full_upgrade.sh"
+NEXT_JOB="@reboot sudo"
 NEXT_SHELL_DIR="$USER_SHELL_DIR"
+NEXT_SHELL="sequence.sh"
 NEXT_SHELL_PATH="$NEXT_SHELL_DIR/$NEXT_SHELL"
 
 ###
 
 #### END Logging Template ####
 
-echo "==== Start $0 at $HOME ===="
+echo "============================================="
+echo "=== START: $0 at $HOME ===="
+echo "============================================="
 
-mkdir -p $USER_SHELL_DIR
-cp -r /vagrant/shell/common/. $USER_SHELL_DIR/
-cp -r /vagrant/shell/$TYPE\_kube/. $USER_SHELL_DIR/
+sudo apt-get update -yqq && sudo apt-get -yqq full-upgrade 
 
-mkdir -p $USER_VARIABLE_DIR
-cp -r /vagrant/variable/. $USER_VARIABLE_DIR/
+# remove cronjob
+sudo -u root /bin/bash -c "crontab -l | sed -e '/$CURRENT_SHELL_NAME/d' | crontab -"
 
-sudo chown -R $USER:$USER $USER_SHELL_DIR
-sudo chown -R $USER:$USER $USER_VARIABLE_DIR
+# add cronjob
+sudo -u root /bin/bash -c "cat <(crontab -l) <(echo \"$NEXT_JOB $NEXT_SHELL_PATH $TYPE\") | crontab -"
 
-sudo /bin/bash -c "cat <(crontab -l) <(echo \"$NEXT_JOB $NEXT_SHELL_PATH $TYPE\") | crontab -"
+echo "=== COMPLETE: $0 ==="
 
 echo "============================================="
 echo "=== !WAIT!: cronjob for $NEXT_SHELL"

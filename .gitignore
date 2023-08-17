@@ -2,3 +2,5 @@
 
 variable/*
 .vagrant
+log/*
+.
