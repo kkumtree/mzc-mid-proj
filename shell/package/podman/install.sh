@@ -2,4 +2,6 @@
 
 DEBIAN_FRONTEND=noninteractive
 
-sudo apt-get update -yqq && sudo apt-get -yqq install podman
+unset DEBIAN_FRONTEND
+
+sudo apt-get update -yqq && sudo apt-get -yqq install -o Dpkg::Options::="--force-confnew" podman

@@ -33,7 +33,7 @@ source $DOT_ENV
 
 cat <<EOF | sudo tee /etc/containers/registries.conf
 [registries.search]
-registries = ['$DOCKER_SERVER']
+registries = ['docker.io']
 EOF
 
 sudo systemctl restart podman --wait
