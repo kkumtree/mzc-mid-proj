@@ -4,7 +4,7 @@
 Vagrant.configure("2") do |config|
     config.vm.box = "ubuntu/jammy64"
 
-    config.vm.define "pipeline" do |pipe|
+    config.vm.define "pipe" do |pipe|
         pipe.vm.hostname = "jenkins"
         pipe.vm.provider "virtualbox" do |vb|
             vb.name = "jenkins"
@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
         pipe.vm.network "private_network", ip: "192.168.17.101"
         pipe.vm.network "public_network"
         pipe.vm.provision "shell", 
-        inline: "/bin/bash /vagrant/shell/common/vagrant.sh pipe"
+        inline: "/bin/bash /vagrant/shell/common/vagrant.sh pipe" 
     end
 
     config.vm.define "img" do |img|

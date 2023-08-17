@@ -71,7 +71,7 @@ fi
 #   sudo tee /etc/systemd/system/user.slice.d/50-cpu-cpuset-io-delegation.conf <<EOF
 
 sudo mkdir -p /etc/systemd/system/user@.service.d
-cat <<EOF | sudo tee /etc/systemd/system/user@.service.d/delegate.conf
+sudo tee /etc/systemd/system/user@.service.d/delegate.conf <<EOF
 [Service]
 Delegate=cpu cpuset io memory pids
 EOF

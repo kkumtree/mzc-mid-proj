@@ -30,7 +30,7 @@ TYPE="$1"
 
 # install cri-o
 
-/bin/bash /vagrant/shell/package/crio/install.sh
+/bin/bash /vagrant/shell/package/cri/crio/install.sh
 
 ####################
 
