@@ -1,0 +1,639 @@
+=== START AT: 230818_013302 ===
+=== PROGRESS[ 1 ]: /home/vagrant/shell/11_apt_package/1_install_utility.sh ===
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Selecting previously unselected package libnfsidmap1:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 63899 files and directories currently installed.)
+Preparing to unpack .../0-libnfsidmap1_1%3a2.6.1-1ubuntu1.2_amd64.deb ...
+Unpacking libnfsidmap1:amd64 (1:2.6.1-1ubuntu1.2) ...
+Selecting previously unselected package rpcbind.
+Preparing to unpack .../1-rpcbind_1.2.6-2build1_amd64.deb ...
+Unpacking rpcbind (1.2.6-2build1) ...
+Selecting previously unselected package keyutils.
+Preparing to unpack .../2-keyutils_1.6.1-2ubuntu3_amd64.deb ...
+Unpacking keyutils (1.6.1-2ubuntu3) ...
+Selecting previously unselected package nfs-common.
+Preparing to unpack .../3-nfs-common_1%3a2.6.1-1ubuntu1.2_amd64.deb ...
+Unpacking nfs-common (1:2.6.1-1ubuntu1.2) ...
+Selecting previously unselected package apt-transport-https.
+Preparing to unpack .../4-apt-transport-https_2.4.10_all.deb ...
+Unpacking apt-transport-https (2.4.10) ...
+Selecting previously unselected package libonig5:amd64.
+Preparing to unpack .../5-libonig5_6.9.7.1-2build1_amd64.deb ...
+Unpacking libonig5:amd64 (6.9.7.1-2build1) ...
+Selecting previously unselected package libjq1:amd64.
+Preparing to unpack .../6-libjq1_1.6-2.1ubuntu3_amd64.deb ...
+Unpacking libjq1:amd64 (1.6-2.1ubuntu3) ...
+Selecting previously unselected package jq.
+Preparing to unpack .../7-jq_1.6-2.1ubuntu3_amd64.deb ...
+Unpacking jq (1.6-2.1ubuntu3) ...
+Selecting previously unselected package uidmap.
+Preparing to unpack .../8-uidmap_1%3a4.8.1-2ubuntu2.1_amd64.deb ...
+Unpacking uidmap (1:4.8.1-2ubuntu2.1) ...
+Selecting previously unselected package gnupg2.
+Preparing to unpack .../9-gnupg2_2.2.27-3ubuntu2.1_all.deb ...
+Unpacking gnupg2 (2.2.27-3ubuntu2.1) ...
+Setting up gnupg2 (2.2.27-3ubuntu2.1) ...
+Setting up libnfsidmap1:amd64 (1:2.6.1-1ubuntu1.2) ...
+Setting up apt-transport-https (2.4.10) ...
+Setting up uidmap (1:4.8.1-2ubuntu2.1) ...
+Setting up rpcbind (1.2.6-2build1) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/rpcbind.service → /lib/systemd/system/rpcbind.service.
+Created symlink /etc/systemd/system/sockets.target.wants/rpcbind.socket → /lib/systemd/system/rpcbind.socket.
+Setting up keyutils (1.6.1-2ubuntu3) ...
+Setting up libonig5:amd64 (6.9.7.1-2build1) ...
+Setting up libjq1:amd64 (1.6-2.1ubuntu3) ...
+Setting up nfs-common (1:2.6.1-1ubuntu1.2) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+
+Creating config file /etc/idmapd.conf with new version
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+
+Creating config file /etc/nfs.conf with new version
+Adding system user `statd' (UID 114) ...
+Adding new user `statd' (UID 114) with group `nogroup' ...
+Not creating home directory `/var/lib/nfs'.
+Created symlink /etc/systemd/system/multi-user.target.wants/nfs-client.target → /lib/systemd/system/nfs-client.target.
+Created symlink /etc/systemd/system/remote-fs.target.wants/nfs-client.target → /lib/systemd/system/nfs-client.target.
+auth-rpcgss-module.service is a disabled or a static unit, not starting it.
+nfs-idmapd.service is a disabled or a static unit, not starting it.
+nfs-utils.service is a disabled or a static unit, not starting it.
+proc-fs-nfsd.mount is a disabled or a static unit, not starting it.
+rpc-gssd.service is a disabled or a static unit, not starting it.
+rpc-statd-notify.service is a disabled or a static unit, not starting it.
+rpc-statd.service is a disabled or a static unit, not starting it.
+rpc-svcgssd.service is a disabled or a static unit, not starting it.
+rpc_pipefs.target is a disabled or a static unit, not starting it.
+var-lib-nfs-rpc_pipefs.mount is a disabled or a static unit, not starting it.
+Setting up jq (1.6-2.1ubuntu3) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+=== COMPLETE[ 1 ]: /home/vagrant/shell/11_apt_package/1_install_utility.sh ===
+=== PROGRESS[ 2 ]: /home/vagrant/shell/11_apt_package/2_kubernetes_repository.sh ===
+deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
+=== COMPLETE[ 2 ]: /home/vagrant/shell/11_apt_package/2_kubernetes_repository.sh ===
+=== PROGRESS[ 3 ]: /home/vagrant/shell/11_apt_package/3_apt_update.sh ===
+=== COMPLETE[ 3 ]: /home/vagrant/shell/11_apt_package/3_apt_update.sh ===
+=== PROGRESS[ 4 ]: /home/vagrant/shell/11_apt_package/4_install_crio.sh ===
+XDG_RUNTIME_DIR is not set
+cgroup v2 is not set
+Sourcing file `/etc/default/grub'
+Sourcing file `/etc/default/grub.d/50-cloudimg-settings.cfg'
+Sourcing file `/etc/default/grub.d/init-select.cfg'
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-5.15.0-76-generic
+Found initrd image: /boot/initrd.img-5.15.0-76-generic
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+done
+[Service]
+Delegate=cpu cpuset io memory pids
+# net.ipv4.ping_group_range=0 65535
+net.ipv4.ping_group_range=0 2147483647
+* Applying /etc/sysctl.d/10-console-messages.conf ...
+kernel.printk = 4 4 1 7
+* Applying /etc/sysctl.d/10-ipv6-privacy.conf ...
+net.ipv6.conf.all.use_tempaddr = 2
+net.ipv6.conf.default.use_tempaddr = 2
+* Applying /etc/sysctl.d/10-kernel-hardening.conf ...
+kernel.kptr_restrict = 1
+* Applying /etc/sysctl.d/10-magic-sysrq.conf ...
+kernel.sysrq = 176
+* Applying /etc/sysctl.d/10-network-security.conf ...
+net.ipv4.conf.default.rp_filter = 2
+net.ipv4.conf.all.rp_filter = 2
+* Applying /etc/sysctl.d/10-ptrace.conf ...
+kernel.yama.ptrace_scope = 1
+* Applying /etc/sysctl.d/10-zeropage.conf ...
+vm.mmap_min_addr = 65536
+* Applying /usr/lib/sysctl.d/50-default.conf ...
+kernel.core_uses_pid = 1
+net.ipv4.conf.default.rp_filter = 2
+net.ipv4.conf.default.accept_source_route = 0
+sysctl: setting key "net.ipv4.conf.all.accept_source_route": Invalid argument
+net.ipv4.conf.default.promote_secondaries = 1
+sysctl: setting key "net.ipv4.conf.all.promote_secondaries": Invalid argument
+net.ipv4.ping_group_range = 0 2147483647
+net.core.default_qdisc = fq_codel
+fs.protected_hardlinks = 1
+fs.protected_symlinks = 1
+fs.protected_regular = 1
+fs.protected_fifos = 1
+* Applying /usr/lib/sysctl.d/50-pid-max.conf ...
+kernel.pid_max = 4194304
+* Applying /etc/sysctl.d/99-cloudimg-ipv6.conf ...
+net.ipv6.conf.all.use_tempaddr = 0
+net.ipv6.conf.default.use_tempaddr = 0
+* Applying /usr/lib/sysctl.d/99-protect-links.conf ...
+fs.protected_fifos = 1
+fs.protected_hardlinks = 1
+fs.protected_regular = 2
+fs.protected_symlinks = 1
+* Applying /etc/sysctl.d/99-rootless.conf ...
+net.ipv4.ping_group_range = 0 2147483647
+* Applying /etc/sysctl.d/99-sysctl.conf ...
+* Applying /etc/sysctl.conf ...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0Welcome to the CRI-O install script!
+No architecture provided, using: amd64
+Checking if all commands are available: curl jq tar
+Searching for latest version via marker file
+100  9178  100  9178    0     0  19821      0 --:--:-- --:--:-- --:--:-- 19822
+Found latest version d2e7a08a185a0ec6114d44ce84e71032b7a80c7e
+Downloading https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.d2e7a08a185a0ec6114d44ce84e71032b7a80c7e.tar.gz to /tmp/tmp.eMo6VXkfaf
+/tmp/tmp.eMo6VXkfaf ~
+Installing CRI-O
++ install -d -m 755 /etc/cni/net.d
++ install -D -m 755 -t /opt/cni/bin cni-plugins/bandwidth cni-plugins/bridge cni-plugins/dhcp cni-plugins/dummy cni-plugins/firewall cni-plugins/host-device cni-plugins/host-local cni-plugins/ipvlan cni-plugins/loopback cni-plugins/macvlan cni-plugins/portmap cni-plugins/ptp cni-plugins/sbr cni-plugins/static cni-plugins/tap cni-plugins/tuning cni-plugins/vlan cni-plugins/vrf
++ install -D -m 644 -t /etc/cni/net.d contrib/11-crio-ipv4-bridge.conflist
++ install -D -m 755 -t /usr/local/bin bin/conmon
++ install -D -m 755 -t /usr/local/bin bin/crictl
++ install -d -m 755 /usr/local/share/bash-completion/completions
++ install -d -m 755 /usr/local/share/fish/completions
++ install -d -m 755 /usr/local/share/zsh/site-functions
++ install -d -m 755 /etc/containers
++ install -D -m 755 -t /usr/local/bin bin/crio-status
++ install -D -m 755 -t /usr/local/bin bin/crio
++ install -D -m 644 -t /etc etc/crictl.yaml
++ install -D -m 644 -t /usr/local/share/oci-umount/oci-umount.d etc/crio-umount.conf
++ install -D -m 644 -t /etc/crio etc/crio.conf
++ install -D -m 644 -t /etc/crio/crio.conf.d etc/10-crun.conf
++ install -D -m 644 -t /usr/local/share/man/man5 man/crio.conf.5
++ install -D -m 644 -t /usr/local/share/man/man5 man/crio.conf.d.5
++ install -D -m 644 -t /usr/local/share/man/man8 man/crio-status.8
++ install -D -m 644 -t /usr/local/share/man/man8 man/crio.8
++ install -D -m 644 -t /usr/local/share/bash-completion/completions completions/bash/crio
++ install -D -m 644 -t /usr/local/share/fish/completions completions/fish/crio.fish
++ install -D -m 644 -t /usr/local/share/zsh/site-functions completions/zsh/_crio
++ install -D -m 644 -t /etc/containers contrib/policy.json
++ install -D -m 644 -t /usr/local/lib/systemd/system contrib/crio.service
++ install -D -m 755 -t /usr/local/bin bin/pinns
++ install -D -m 755 -t /usr/local/bin bin/crun
++ command -v runc
++ install -D -m 755 -t /usr/local/bin bin/runc
++ '[' -n '' ']'
++ rm -rf -- /tmp/tmp.eMo6VXkfaf
+[crio.runtime.runtimes.runc]
+runtime_path = ""
+runtime_type = "oci"
+runtime_root = "/run/runc"
+Created symlink /etc/systemd/system/cri-o.service → /usr/local/lib/systemd/system/crio.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/crio.service → /usr/local/lib/systemd/system/crio.service.
+=== COMPLETE[ 4 ]: /home/vagrant/shell/11_apt_package/4_install_crio.sh ===
+=== PROGRESS[ 5 ]: /home/vagrant/shell/11_apt_package/5_install_podman.sh ===
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Selecting previously unselected package golang-github-containers-image.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 64068 files and directories currently installed.)
+Preparing to unpack .../00-golang-github-containers-image_5.16.0-3_all.deb ...
+Unpacking golang-github-containers-image (5.16.0-3) ...
+Selecting previously unselected package golang-github-containers-common.
+Preparing to unpack .../01-golang-github-containers-common_0.44.4+ds1-1_all.deb ...
+Unpacking golang-github-containers-common (0.44.4+ds1-1) ...
+Selecting previously unselected package libavahi-common-data:amd64.
+Preparing to unpack .../02-libavahi-common-data_0.8-5ubuntu5.1_amd64.deb ...
+Unpacking libavahi-common-data:amd64 (0.8-5ubuntu5.1) ...
+Selecting previously unselected package libavahi-common3:amd64.
+Preparing to unpack .../03-libavahi-common3_0.8-5ubuntu5.1_amd64.deb ...
+Unpacking libavahi-common3:amd64 (0.8-5ubuntu5.1) ...
+Selecting previously unselected package libavahi-client3:amd64.
+Preparing to unpack .../04-libavahi-client3_0.8-5ubuntu5.1_amd64.deb ...
+Unpacking libavahi-client3:amd64 (0.8-5ubuntu5.1) ...
+Selecting previously unselected package libavahi-glib1:amd64.
+Preparing to unpack .../05-libavahi-glib1_0.8-5ubuntu5.1_amd64.deb ...
+Unpacking libavahi-glib1:amd64 (0.8-5ubuntu5.1) ...
+Selecting previously unselected package libproxy1v5:amd64.
+Preparing to unpack .../06-libproxy1v5_0.4.17-2_amd64.deb ...
+Unpacking libproxy1v5:amd64 (0.4.17-2) ...
+Selecting previously unselected package glib-networking-common.
+Preparing to unpack .../07-glib-networking-common_2.72.0-1_all.deb ...
+Unpacking glib-networking-common (2.72.0-1) ...
+Selecting previously unselected package glib-networking-services.
+Preparing to unpack .../08-glib-networking-services_2.72.0-1_amd64.deb ...
+Unpacking glib-networking-services (2.72.0-1) ...
+Selecting previously unselected package libdconf1:amd64.
+Preparing to unpack .../09-libdconf1_0.40.0-3_amd64.deb ...
+Unpacking libdconf1:amd64 (0.40.0-3) ...
+Selecting previously unselected package dconf-service.
+Preparing to unpack .../10-dconf-service_0.40.0-3_amd64.deb ...
+Unpacking dconf-service (0.40.0-3) ...
+Selecting previously unselected package dconf-gsettings-backend:amd64.
+Preparing to unpack .../11-dconf-gsettings-backend_0.40.0-3_amd64.deb ...
+Unpacking dconf-gsettings-backend:amd64 (0.40.0-3) ...
+Selecting previously unselected package session-migration.
+Preparing to unpack .../12-session-migration_0.3.6_amd64.deb ...
+Unpacking session-migration (0.3.6) ...
+Selecting previously unselected package gsettings-desktop-schemas.
+Preparing to unpack .../13-gsettings-desktop-schemas_42.0-1ubuntu1_all.deb ...
+Unpacking gsettings-desktop-schemas (42.0-1ubuntu1) ...
+Selecting previously unselected package glib-networking:amd64.
+Preparing to unpack .../14-glib-networking_2.72.0-1_amd64.deb ...
+Unpacking glib-networking:amd64 (2.72.0-1) ...
+Selecting previously unselected package libsoup2.4-common.
+Preparing to unpack .../15-libsoup2.4-common_2.74.2-3_all.deb ...
+Unpacking libsoup2.4-common (2.74.2-3) ...
+Selecting previously unselected package libsoup2.4-1:amd64.
+Preparing to unpack .../16-libsoup2.4-1_2.74.2-3_amd64.deb ...
+Unpacking libsoup2.4-1:amd64 (2.74.2-3) ...
+Selecting previously unselected package libostree-1-1:amd64.
+Preparing to unpack .../17-libostree-1-1_2022.2-3_amd64.deb ...
+Unpacking libostree-1-1:amd64 (2022.2-3) ...
+Selecting previously unselected package buildah.
+Preparing to unpack .../18-buildah_1.23.1+ds1-2_amd64.deb ...
+Unpacking buildah (1.23.1+ds1-2) ...
+Selecting previously unselected package catatonit.
+Preparing to unpack .../19-catatonit_0.1.7-1_amd64.deb ...
+Unpacking catatonit (0.1.7-1) ...
+Selecting previously unselected package conmon.
+Preparing to unpack .../20-conmon_2.0.25+ds1-1.1_amd64.deb ...
+Unpacking conmon (2.0.25+ds1-1.1) ...
+Selecting previously unselected package containernetworking-plugins.
+Preparing to unpack .../21-containernetworking-plugins_0.9.1+ds1-1_amd64.deb ...
+Unpacking containernetworking-plugins (0.9.1+ds1-1) ...
+Selecting previously unselected package libyajl2:amd64.
+Preparing to unpack .../22-libyajl2_2.1.0-3build2_amd64.deb ...
+Unpacking libyajl2:amd64 (2.1.0-3build2) ...
+Selecting previously unselected package crun.
+Preparing to unpack .../23-crun_0.17+dfsg-1.1_amd64.deb ...
+Unpacking crun (0.17+dfsg-1.1) ...
+Selecting previously unselected package dns-root-data.
+Preparing to unpack .../24-dns-root-data_2021011101_all.deb ...
+Unpacking dns-root-data (2021011101) ...
+Selecting previously unselected package dnsmasq-base.
+Preparing to unpack .../25-dnsmasq-base_2.86-1.1ubuntu0.3_amd64.deb ...
+Unpacking dnsmasq-base (2.86-1.1ubuntu0.3) ...
+Selecting previously unselected package fuse-overlayfs.
+Preparing to unpack .../26-fuse-overlayfs_1.7.1-1_amd64.deb ...
+Unpacking fuse-overlayfs (1.7.1-1) ...
+Selecting previously unselected package golang-github-containernetworking-plugin-dnsname.
+Preparing to unpack .../27-golang-github-containernetworking-plugin-dnsname_1.3.1+ds1-2_amd64.deb ...
+Unpacking golang-github-containernetworking-plugin-dnsname (1.3.1+ds1-2) ...
+Selecting previously unselected package libslirp0:amd64.
+Preparing to unpack .../28-libslirp0_4.6.1-1build1_amd64.deb ...
+Unpacking libslirp0:amd64 (4.6.1-1build1) ...
+Selecting previously unselected package podman.
+Preparing to unpack .../29-podman_3.4.4+ds1-1ubuntu1.22.04.2_amd64.deb ...
+Unpacking podman (3.4.4+ds1-1ubuntu1.22.04.2) ...
+Selecting previously unselected package slirp4netns.
+Preparing to unpack .../30-slirp4netns_1.0.1-2_amd64.deb ...
+Unpacking slirp4netns (1.0.1-2) ...
+Setting up session-migration (0.3.6) ...
+Created symlink /etc/systemd/user/graphical-session-pre.target.wants/session-migration.service → /usr/lib/systemd/user/session-migration.service.
+Setting up libproxy1v5:amd64 (0.4.17-2) ...
+Setting up libyajl2:amd64 (2.1.0-3build2) ...
+Setting up dnsmasq-base (2.86-1.1ubuntu0.3) ...
+Setting up dns-root-data (2021011101) ...
+Setting up libdconf1:amd64 (0.40.0-3) ...
+Setting up golang-github-containers-image (5.16.0-3) ...
+Setting up conmon (2.0.25+ds1-1.1) ...
+Setting up containernetworking-plugins (0.9.1+ds1-1) ...
+Setting up catatonit (0.1.7-1) ...
+Setting up libavahi-common-data:amd64 (0.8-5ubuntu5.1) ...
+Setting up golang-github-containernetworking-plugin-dnsname (1.3.1+ds1-2) ...
+Setting up libsoup2.4-common (2.74.2-3) ...
+Setting up libslirp0:amd64 (4.6.1-1build1) ...
+Setting up fuse-overlayfs (1.7.1-1) ...
+Setting up golang-github-containers-common (0.44.4+ds1-1) ...
+
+Configuration file '/etc/containers/policy.json'
+ ==> File on system created by you or by a script.
+ ==> File also in package provided by package maintainer.
+ ==> Using new file as you requested.
+Installing new version of config file /etc/containers/policy.json ...
+Setting up glib-networking-common (2.72.0-1) ...
+Setting up glib-networking-services (2.72.0-1) ...
+Setting up slirp4netns (1.0.1-2) ...
+Setting up crun (0.17+dfsg-1.1) ...
+Setting up libavahi-common3:amd64 (0.8-5ubuntu5.1) ...
+Setting up podman (3.4.4+ds1-1ubuntu1.22.04.2) ...
+Created symlink /etc/systemd/user/default.target.wants/podman.service → /usr/lib/systemd/user/podman.service.
+Created symlink /etc/systemd/user/sockets.target.wants/podman.socket → /usr/lib/systemd/user/podman.socket.
+Created symlink /etc/systemd/system/default.target.wants/podman.service → /lib/systemd/system/podman.service.
+Created symlink /etc/systemd/system/sockets.target.wants/podman.socket → /lib/systemd/system/podman.socket.
+Created symlink /etc/systemd/system/default.target.wants/podman-auto-update.service → /lib/systemd/system/podman-auto-update.service.
+Created symlink /etc/systemd/system/timers.target.wants/podman-auto-update.timer → /lib/systemd/system/podman-auto-update.timer.
+Created symlink /etc/systemd/system/default.target.wants/podman-restart.service → /lib/systemd/system/podman-restart.service.
+Setting up dconf-service (0.40.0-3) ...
+Setting up libavahi-glib1:amd64 (0.8-5ubuntu5.1) ...
+Setting up libavahi-client3:amd64 (0.8-5ubuntu5.1) ...
+Setting up dconf-gsettings-backend:amd64 (0.40.0-3) ...
+Setting up gsettings-desktop-schemas (42.0-1ubuntu1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for dbus (1.12.20-2ubuntu4.1) ...
+Processing triggers for libglib2.0-0:amd64 (2.72.4-0ubuntu2.2) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+Setting up glib-networking:amd64 (2.72.0-1) ...
+Setting up libsoup2.4-1:amd64 (2.74.2-3) ...
+Setting up libostree-1-1:amd64 (2022.2-3) ...
+Setting up buildah (1.23.1+ds1-2) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+cannot chdir to /root: Permission denied
+Error: chown /home/vagrant/.local/share/containers/storage/overlay/l: operation not permitted
+=== COMPLETE[ 5 ]: /home/vagrant/shell/11_apt_package/5_install_podman.sh ===
+=== PROGRESS[ 6 ]: /home/vagrant/shell/11_apt_package/6_3_install_kubernetes.sh ===
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Selecting previously unselected package conntrack.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 64631 files and directories currently installed.)
+Preparing to unpack .../0-conntrack_1%3a1.4.6-2build2_amd64.deb ...
+Unpacking conntrack (1:1.4.6-2build2) ...
+Selecting previously unselected package cri-tools.
+Preparing to unpack .../1-cri-tools_1.28.0-1.1_amd64.deb ...
+Unpacking cri-tools (1.28.0-1.1) ...
+Selecting previously unselected package ebtables.
+Preparing to unpack .../2-ebtables_2.0.11-4build2_amd64.deb ...
+Unpacking ebtables (2.0.11-4build2) ...
+Selecting previously unselected package kubernetes-cni.
+Preparing to unpack .../3-kubernetes-cni_1.2.0-2.1_amd64.deb ...
+Unpacking kubernetes-cni (1.2.0-2.1) ...
+Selecting previously unselected package socat.
+Preparing to unpack .../4-socat_1.7.4.1-3ubuntu4_amd64.deb ...
+Unpacking socat (1.7.4.1-3ubuntu4) ...
+Selecting previously unselected package kubelet.
+Preparing to unpack .../5-kubelet_1.28.0-1.1_amd64.deb ...
+Unpacking kubelet (1.28.0-1.1) ...
+Selecting previously unselected package kubectl.
+Preparing to unpack .../6-kubectl_1.28.0-1.1_amd64.deb ...
+Unpacking kubectl (1.28.0-1.1) ...
+Selecting previously unselected package kubeadm.
+Preparing to unpack .../7-kubeadm_1.28.0-1.1_amd64.deb ...
+Unpacking kubeadm (1.28.0-1.1) ...
+Setting up conntrack (1:1.4.6-2build2) ...
+Setting up kubectl (1.28.0-1.1) ...
+Setting up ebtables (2.0.11-4build2) ...
+Setting up socat (1.7.4.1-3ubuntu4) ...
+Setting up cri-tools (1.28.0-1.1) ...
+Setting up kubernetes-cni (1.2.0-2.1) ...
+Setting up kubelet (1.28.0-1.1) ...
+Setting up kubeadm (1.28.0-1.1) ...
+Processing triggers for man-db (2.10.2-1) ...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+kubelet set on hold.
+kubeadm set on hold.
+kubectl set on hold.
+=== COMPLETE[ 6 ]: /home/vagrant/shell/11_apt_package/6_3_install_kubernetes.sh ===
+=== PROGRESS[ 7 ]: /home/vagrant/shell/12_kubeadm_prerequisite/1_filesystem.sh ===
+=== COMPLETE[ 7 ]: /home/vagrant/shell/12_kubeadm_prerequisite/1_filesystem.sh ===
+=== PROGRESS[ 8 ]: /home/vagrant/shell/12_kubeadm_prerequisite/2_runtime.sh ===
+overlay
+br_netfilter
+net.bridge.bridge-nf-call-iptables  = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward                 = 1
+* Applying /etc/sysctl.d/10-console-messages.conf ...
+kernel.printk = 4 4 1 7
+* Applying /etc/sysctl.d/10-ipv6-privacy.conf ...
+net.ipv6.conf.all.use_tempaddr = 2
+net.ipv6.conf.default.use_tempaddr = 2
+* Applying /etc/sysctl.d/10-kernel-hardening.conf ...
+kernel.kptr_restrict = 1
+* Applying /etc/sysctl.d/10-magic-sysrq.conf ...
+kernel.sysrq = 176
+* Applying /etc/sysctl.d/10-network-security.conf ...
+net.ipv4.conf.default.rp_filter = 2
+net.ipv4.conf.all.rp_filter = 2
+* Applying /etc/sysctl.d/10-ptrace.conf ...
+kernel.yama.ptrace_scope = 1
+* Applying /etc/sysctl.d/10-zeropage.conf ...
+vm.mmap_min_addr = 65536
+* Applying /usr/lib/sysctl.d/50-default.conf ...
+kernel.core_uses_pid = 1
+net.ipv4.conf.default.rp_filter = 2
+net.ipv4.conf.default.accept_source_route = 0
+sysctl: setting key "net.ipv4.conf.all.accept_source_route": Invalid argument
+net.ipv4.conf.default.promote_secondaries = 1
+sysctl: setting key "net.ipv4.conf.all.promote_secondaries": Invalid argument
+net.ipv4.ping_group_range = 0 2147483647
+net.core.default_qdisc = fq_codel
+fs.protected_hardlinks = 1
+fs.protected_symlinks = 1
+fs.protected_regular = 1
+fs.protected_fifos = 1
+* Applying /usr/lib/sysctl.d/50-pid-max.conf ...
+kernel.pid_max = 4194304
+* Applying /etc/sysctl.d/99-cloudimg-ipv6.conf ...
+net.ipv6.conf.all.use_tempaddr = 0
+net.ipv6.conf.default.use_tempaddr = 0
+* Applying /usr/lib/sysctl.d/99-protect-links.conf ...
+fs.protected_fifos = 1
+fs.protected_hardlinks = 1
+fs.protected_regular = 2
+fs.protected_symlinks = 1
+* Applying /etc/sysctl.d/99-rootless.conf ...
+net.ipv4.ping_group_range = 0 2147483647
+* Applying /etc/sysctl.d/99-sysctl.conf ...
+* Applying /etc/sysctl.d/k8s.conf ...
+net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward = 1
+* Applying /etc/sysctl.conf ...
+br_netfilter           32768  0
+bridge                307200  1 br_netfilter
+overlay               151552  0
+net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward = 1
+=== COMPLETE[ 8 ]: /home/vagrant/shell/12_kubeadm_prerequisite/2_runtime.sh ===
+=== PROGRESS[ 9 ]: /home/vagrant/shell/12_kubeadm_prerequisite/3_enable_service.sh ===
+=== COMPLETE[ 9 ]: /home/vagrant/shell/12_kubeadm_prerequisite/3_enable_service.sh ===
+=== PROGRESS[ 10 ]: /home/vagrant/shell/12_kubeadm_prerequisite/4_hosts.sh ===
+# Content: hosts file for kubernetes cluster
+
+# loopback
+127.0.0.1 localhost
+
+# Vagrant setting
+192.168.17.101 kube-controller
+192.168.17.102 kube-worker-node1
+192.168.17.103 kube-worker-node2=== COMPLETE[ 10 ]: /home/vagrant/shell/12_kubeadm_prerequisite/4_hosts.sh ===
+=== PROGRESS[ 11 ]: /home/vagrant/shell/21_kubeadm/1_pull_config_images.sh ===
+[config/images] Pulled registry.k8s.io/kube-apiserver:v1.28.0
+[config/images] Pulled registry.k8s.io/kube-controller-manager:v1.28.0
+[config/images] Pulled registry.k8s.io/kube-scheduler:v1.28.0
+[config/images] Pulled registry.k8s.io/kube-proxy:v1.28.0
+[config/images] Pulled registry.k8s.io/pause:3.9
+[config/images] Pulled registry.k8s.io/etcd:3.5.9-0
+[config/images] Pulled registry.k8s.io/coredns/coredns:v1.10.1
+=== COMPLETE[ 11 ]: /home/vagrant/shell/21_kubeadm/1_pull_config_images.sh ===
+=== PROGRESS[ 12 ]: /home/vagrant/shell/21_kubeadm/2_install.sh ===
+[init] Using Kubernetes version: v1.28.0
+[preflight] Running pre-flight checks
+[preflight] Pulling images required for setting up a Kubernetes cluster
+[preflight] This might take a minute or two, depending on the speed of your internet connection
+[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'
+[certs] Using certificateDir folder "/etc/kubernetes/pki"
+[certs] Generating "ca" certificate and key
+[certs] Generating "apiserver" certificate and key
+[certs] apiserver serving cert is signed for DNS names [kube-controller kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 192.168.17.101]
+[certs] Generating "apiserver-kubelet-client" certificate and key
+[certs] Generating "front-proxy-ca" certificate and key
+[certs] Generating "front-proxy-client" certificate and key
+[certs] Generating "etcd/ca" certificate and key
+[certs] Generating "etcd/server" certificate and key
+[certs] etcd/server serving cert is signed for DNS names [kube-controller localhost] and IPs [192.168.17.101 127.0.0.1 ::1]
+[certs] Generating "etcd/peer" certificate and key
+[certs] etcd/peer serving cert is signed for DNS names [kube-controller localhost] and IPs [192.168.17.101 127.0.0.1 ::1]
+[certs] Generating "etcd/healthcheck-client" certificate and key
+[certs] Generating "apiserver-etcd-client" certificate and key
+[certs] Generating "sa" key and public key
+[kubeconfig] Using kubeconfig folder "/etc/kubernetes"
+[kubeconfig] Writing "admin.conf" kubeconfig file
+[kubeconfig] Writing "kubelet.conf" kubeconfig file
+[kubeconfig] Writing "controller-manager.conf" kubeconfig file
+[kubeconfig] Writing "scheduler.conf" kubeconfig file
+[etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"
+[control-plane] Using manifest folder "/etc/kubernetes/manifests"
+[control-plane] Creating static Pod manifest for "kube-apiserver"
+[control-plane] Creating static Pod manifest for "kube-controller-manager"
+[control-plane] Creating static Pod manifest for "kube-scheduler"
+[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+[kubelet-start] Starting the kubelet
+[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s
+[apiclient] All control plane components are healthy after 5.002915 seconds
+[upload-config] Storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace
+[kubelet] Creating a ConfigMap "kubelet-config" in namespace kube-system with the configuration for the kubelets in the cluster
+[upload-certs] Storing the certificates in Secret "kubeadm-certs" in the "kube-system" Namespace
+[upload-certs] Using certificate key:
+837023deb493d60a6a15f6abaeaf3843524a2cee58e62a8bc7e08983f81a90d4
+[mark-control-plane] Marking the node kube-controller as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]
+[mark-control-plane] Marking the node kube-controller as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]
+[bootstrap-token] Using token: pddvp4.fad0aw7m4el1j9ub
+[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles
+[bootstrap-token] Configured RBAC rules to allow Node Bootstrap tokens to get nodes
+[bootstrap-token] Configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
+[bootstrap-token] Configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
+[bootstrap-token] Configured RBAC rules to allow certificate rotation for all node client certificates in the cluster
+[bootstrap-token] Creating the "cluster-info" ConfigMap in the "kube-public" namespace
+[kubelet-finalize] Updating "/etc/kubernetes/kubelet.conf" to point to a rotatable kubelet client certificate and key
+[addons] Applied essential addon: CoreDNS
+[addons] Applied essential addon: kube-proxy
+
+Your Kubernetes control-plane has initialized successfully!
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+You can now join any number of the control-plane node running the following command on each as root:
+
+  kubeadm join kube-controller:6443 --token pddvp4.fad0aw7m4el1j9ub \
+	--discovery-token-ca-cert-hash sha256:5e48ed9d80de900854766877b0f3f6a8e385f5423c3c45a0ee6eab23d07cf2b0 \
+	--control-plane --certificate-key 837023deb493d60a6a15f6abaeaf3843524a2cee58e62a8bc7e08983f81a90d4
+
+Please note that the certificate-key gives access to cluster sensitive data, keep it secret!
+As a safeguard, uploaded-certs will be deleted in two hours; If necessary, you can use
+"kubeadm init phase upload-certs --upload-certs" to reload certs afterward.
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join kube-controller:6443 --token pddvp4.fad0aw7m4el1j9ub \
+	--discovery-token-ca-cert-hash sha256:5e48ed9d80de900854766877b0f3f6a8e385f5423c3c45a0ee6eab23d07cf2b0 
+=== COMPLETE[ 12 ]: /home/vagrant/shell/21_kubeadm/2_install.sh ===
+=== PROGRESS[ 13 ]: /home/vagrant/shell/22_helm/0_install.sh ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 11345  100 11345    0     0  21903      0 --:--:-- --:--:-- --:--:-- 21943
+Downloading https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz
+Verifying checksum... Done.
+Preparing to install helm into /usr/local/bin
+helm installed into /usr/local/bin/helm
+=== COMPLETE[ 13 ]: /home/vagrant/shell/22_helm/0_install.sh ===
+=== PROGRESS[ 14 ]: /home/vagrant/shell/23_calico/0_install.sh ===
+namespace/tigera-operator created
+customresourcedefinition.apiextensions.k8s.io/bgpconfigurations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/bgpfilters.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/bgppeers.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/blockaffinities.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/caliconodestatuses.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/clusterinformations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/felixconfigurations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/globalnetworkpolicies.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/globalnetworksets.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/hostendpoints.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipamblocks.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipamconfigs.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipamhandles.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ippools.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/ipreservations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/kubecontrollersconfigurations.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/networkpolicies.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/networksets.crd.projectcalico.org created
+customresourcedefinition.apiextensions.k8s.io/apiservers.operator.tigera.io created
+customresourcedefinition.apiextensions.k8s.io/imagesets.operator.tigera.io created
+customresourcedefinition.apiextensions.k8s.io/installations.operator.tigera.io created
+customresourcedefinition.apiextensions.k8s.io/tigerastatuses.operator.tigera.io created
+serviceaccount/tigera-operator created
+clusterrole.rbac.authorization.k8s.io/tigera-operator created
+clusterrolebinding.rbac.authorization.k8s.io/tigera-operator created
+deployment.apps/tigera-operator created
+installation.operator.tigera.io/default created
+apiserver.operator.tigera.io/default created
+=== COMPLETE[ 14 ]: /home/vagrant/shell/23_calico/0_install.sh ===
+=== PROGRESS[ 15 ]: /home/vagrant/shell/23_dockerhub/0_regcred.sh ===
+secret/regcred created
+=== COMPLETE[ 15 ]: /home/vagrant/shell/23_dockerhub/0_regcred.sh ===
+=== COMPLETE at 230818_013530 ===

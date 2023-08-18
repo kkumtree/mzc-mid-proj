@@ -1,0 +1,248 @@
+=== START AT: 230818_001025 ===
+=== PROGRESS[ 1 ]: /home/vagrant/shell/11_apt_package/1_install_utility.sh ===
+=== COMPLETE[ 1 ]: /home/vagrant/shell/11_apt_package/1_install_utility.sh ===
+=== PROGRESS[ 2 ]: /home/vagrant/shell/11_apt_package/2_kubernetes_repository.sh ===
+gpg: cannot open '/dev/tty': No such device or address
+curl: (23) Failed writing body
+deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
+=== COMPLETE[ 2 ]: /home/vagrant/shell/11_apt_package/2_kubernetes_repository.sh ===
+=== PROGRESS[ 3 ]: /home/vagrant/shell/11_apt_package/3_apt_update.sh ===
+=== COMPLETE[ 3 ]: /home/vagrant/shell/11_apt_package/3_apt_update.sh ===
+=== PROGRESS[ 4 ]: /home/vagrant/shell/11_apt_package/4_install_crio.sh ===
+XDG_RUNTIME_DIR is not set
+cgroup v2 is not set
+Sourcing file `/etc/default/grub'
+Sourcing file `/etc/default/grub.d/50-cloudimg-settings.cfg'
+Sourcing file `/etc/default/grub.d/init-select.cfg'
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-5.15.0-79-generic
+Found initrd image: /boot/initrd.img-5.15.0-79-generic
+Found linux image: /boot/vmlinuz-5.15.0-76-generic
+Found initrd image: /boot/initrd.img-5.15.0-76-generic
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+done
+[Service]
+Delegate=cpu cpuset io memory pids
+# net.ipv4.ping_group_range=0 65535
+net.ipv4.ping_group_range=0 2147483647
+* Applying /etc/sysctl.d/10-console-messages.conf ...
+kernel.printk = 4 4 1 7
+* Applying /etc/sysctl.d/10-ipv6-privacy.conf ...
+net.ipv6.conf.all.use_tempaddr = 2
+net.ipv6.conf.default.use_tempaddr = 2
+* Applying /etc/sysctl.d/10-kernel-hardening.conf ...
+kernel.kptr_restrict = 1
+* Applying /etc/sysctl.d/10-magic-sysrq.conf ...
+kernel.sysrq = 176
+* Applying /etc/sysctl.d/10-network-security.conf ...
+net.ipv4.conf.default.rp_filter = 2
+net.ipv4.conf.all.rp_filter = 2
+* Applying /etc/sysctl.d/10-ptrace.conf ...
+kernel.yama.ptrace_scope = 1
+* Applying /etc/sysctl.d/10-zeropage.conf ...
+vm.mmap_min_addr = 65536
+* Applying /usr/lib/sysctl.d/50-default.conf ...
+kernel.core_uses_pid = 1
+net.ipv4.conf.default.rp_filter = 2
+net.ipv4.conf.default.accept_source_route = 0
+sysctl: setting key "net.ipv4.conf.all.accept_source_route": Invalid argument
+net.ipv4.conf.default.promote_secondaries = 1
+sysctl: setting key "net.ipv4.conf.all.promote_secondaries": Invalid argument
+net.ipv4.ping_group_range = 0 2147483647
+net.core.default_qdisc = fq_codel
+fs.protected_hardlinks = 1
+fs.protected_symlinks = 1
+fs.protected_regular = 1
+fs.protected_fifos = 1
+* Applying /usr/lib/sysctl.d/50-pid-max.conf ...
+kernel.pid_max = 4194304
+* Applying /etc/sysctl.d/99-cloudimg-ipv6.conf ...
+net.ipv6.conf.all.use_tempaddr = 0
+net.ipv6.conf.default.use_tempaddr = 0
+* Applying /usr/lib/sysctl.d/99-protect-links.conf ...
+fs.protected_fifos = 1
+fs.protected_hardlinks = 1
+fs.protected_regular = 2
+fs.protected_symlinks = 1
+* Applying /etc/sysctl.d/99-rootless.conf ...
+net.ipv4.ping_group_range = 0 2147483647
+* Applying /etc/sysctl.d/99-sysctl.conf ...
+* Applying /etc/sysctl.d/k8s.conf ...
+net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward = 1
+* Applying /etc/sysctl.conf ...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0Welcome to the CRI-O install script!
+100  9178  100  9178 No architecture provided, using: amd64
+Checking if all commands are available: curl jq tar
+   0     0  20379      0 --:--:-- --:--:-- --:--:-- 20395
+Searching for latest version via marker file
+Found latest version d2e7a08a185a0ec6114d44ce84e71032b7a80c7e
+Downloading https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.d2e7a08a185a0ec6114d44ce84e71032b7a80c7e.tar.gz to /tmp/tmp.oTSFQQ9AqV
+/tmp/tmp.oTSFQQ9AqV ~
+Installing CRI-O
++ install -d -m 755 /etc/cni/net.d
++ install -D -m 755 -t /opt/cni/bin cni-plugins/bandwidth cni-plugins/bridge cni-plugins/dhcp cni-plugins/dummy cni-plugins/firewall cni-plugins/host-device cni-plugins/host-local cni-plugins/ipvlan cni-plugins/loopback cni-plugins/macvlan cni-plugins/portmap cni-plugins/ptp cni-plugins/sbr cni-plugins/static cni-plugins/tap cni-plugins/tuning cni-plugins/vlan cni-plugins/vrf
++ install -D -m 644 -t /etc/cni/net.d contrib/11-crio-ipv4-bridge.conflist
++ install -D -m 755 -t /usr/local/bin bin/conmon
++ install -D -m 755 -t /usr/local/bin bin/crictl
++ install -d -m 755 /usr/local/share/bash-completion/completions
++ install -d -m 755 /usr/local/share/fish/completions
++ install -d -m 755 /usr/local/share/zsh/site-functions
++ install -d -m 755 /etc/containers
++ install -D -m 755 -t /usr/local/bin bin/crio-status
++ install -D -m 755 -t /usr/local/bin bin/crio
++ install -D -m 644 -t /etc etc/crictl.yaml
++ install -D -m 644 -t /usr/local/share/oci-umount/oci-umount.d etc/crio-umount.conf
++ install -D -m 644 -t /etc/crio etc/crio.conf
++ install -D -m 644 -t /etc/crio/crio.conf.d etc/10-crun.conf
++ install -D -m 644 -t /usr/local/share/man/man5 man/crio.conf.5
++ install -D -m 644 -t /usr/local/share/man/man5 man/crio.conf.d.5
++ install -D -m 644 -t /usr/local/share/man/man8 man/crio-status.8
++ install -D -m 644 -t /usr/local/share/man/man8 man/crio.8
++ install -D -m 644 -t /usr/local/share/bash-completion/completions completions/bash/crio
++ install -D -m 644 -t /usr/local/share/fish/completions completions/fish/crio.fish
++ install -D -m 644 -t /usr/local/share/zsh/site-functions completions/zsh/_crio
++ install -D -m 644 -t /etc/containers contrib/policy.json
++ install -D -m 644 -t /usr/local/lib/systemd/system contrib/crio.service
++ install -D -m 755 -t /usr/local/bin bin/pinns
++ install -D -m 755 -t /usr/local/bin bin/crun
++ command -v runc
+/usr/local/bin/runc
++ '[' -n '' ']'
++ rm -rf -- /tmp/tmp.oTSFQQ9AqV
+[crio.runtime.runtimes.runc]
+runtime_path = ""
+runtime_type = "oci"
+runtime_root = "/run/runc"
+=== COMPLETE[ 4 ]: /home/vagrant/shell/11_apt_package/4_install_crio.sh ===
+=== PROGRESS[ 5 ]: /home/vagrant/shell/11_apt_package/5_install_podman.sh ===
+cannot chdir to /root: Permission denied
+=== COMPLETE[ 5 ]: /home/vagrant/shell/11_apt_package/5_install_podman.sh ===
+=== PROGRESS[ 6 ]: /home/vagrant/shell/11_apt_package/6_3_install_kubernetes.sh ===
+kubelet was already set on hold.
+kubeadm was already set on hold.
+kubectl was already set on hold.
+=== COMPLETE[ 6 ]: /home/vagrant/shell/11_apt_package/6_3_install_kubernetes.sh ===
+=== PROGRESS[ 7 ]: /home/vagrant/shell/12_kubeadm_prerequisite/1_filesystem.sh ===
+=== COMPLETE[ 7 ]: /home/vagrant/shell/12_kubeadm_prerequisite/1_filesystem.sh ===
+=== PROGRESS[ 8 ]: /home/vagrant/shell/12_kubeadm_prerequisite/2_runtime.sh ===
+overlay
+br_netfilter
+net.bridge.bridge-nf-call-iptables  = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward                 = 1
+* Applying /etc/sysctl.d/10-console-messages.conf ...
+kernel.printk = 4 4 1 7
+* Applying /etc/sysctl.d/10-ipv6-privacy.conf ...
+net.ipv6.conf.all.use_tempaddr = 2
+net.ipv6.conf.default.use_tempaddr = 2
+* Applying /etc/sysctl.d/10-kernel-hardening.conf ...
+kernel.kptr_restrict = 1
+* Applying /etc/sysctl.d/10-magic-sysrq.conf ...
+kernel.sysrq = 176
+* Applying /etc/sysctl.d/10-network-security.conf ...
+net.ipv4.conf.default.rp_filter = 2
+net.ipv4.conf.all.rp_filter = 2
+* Applying /etc/sysctl.d/10-ptrace.conf ...
+kernel.yama.ptrace_scope = 1
+* Applying /etc/sysctl.d/10-zeropage.conf ...
+vm.mmap_min_addr = 65536
+* Applying /usr/lib/sysctl.d/50-default.conf ...
+kernel.core_uses_pid = 1
+net.ipv4.conf.default.rp_filter = 2
+net.ipv4.conf.default.accept_source_route = 0
+sysctl: setting key "net.ipv4.conf.all.accept_source_route": Invalid argument
+net.ipv4.conf.default.promote_secondaries = 1
+sysctl: setting key "net.ipv4.conf.all.promote_secondaries": Invalid argument
+net.ipv4.ping_group_range = 0 2147483647
+net.core.default_qdisc = fq_codel
+fs.protected_hardlinks = 1
+fs.protected_symlinks = 1
+fs.protected_regular = 1
+fs.protected_fifos = 1
+* Applying /usr/lib/sysctl.d/50-pid-max.conf ...
+kernel.pid_max = 4194304
+* Applying /etc/sysctl.d/99-cloudimg-ipv6.conf ...
+net.ipv6.conf.all.use_tempaddr = 0
+net.ipv6.conf.default.use_tempaddr = 0
+* Applying /usr/lib/sysctl.d/99-protect-links.conf ...
+fs.protected_fifos = 1
+fs.protected_hardlinks = 1
+fs.protected_regular = 2
+fs.protected_symlinks = 1
+* Applying /etc/sysctl.d/99-rootless.conf ...
+net.ipv4.ping_group_range = 0 2147483647
+* Applying /etc/sysctl.d/99-sysctl.conf ...
+* Applying /etc/sysctl.d/k8s.conf ...
+net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward = 1
+* Applying /etc/sysctl.conf ...
+br_netfilter           32768  0
+bridge                307200  1 br_netfilter
+overlay               151552  4
+net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward = 1
+=== COMPLETE[ 8 ]: /home/vagrant/shell/12_kubeadm_prerequisite/2_runtime.sh ===
+=== PROGRESS[ 9 ]: /home/vagrant/shell/12_kubeadm_prerequisite/3_enable_service.sh ===
+=== COMPLETE[ 9 ]: /home/vagrant/shell/12_kubeadm_prerequisite/3_enable_service.sh ===
+=== PROGRESS[ 10 ]: /home/vagrant/shell/12_kubeadm_prerequisite/4_hosts.sh ===
+# Content: hosts file for kubernetes cluster
+
+# loopback
+127.0.0.1 localhost
+
+# Vagrant setting
+192.168.10.11 kube-controller
+192.168.10.12 kube-worker-node1
+192.168.10.13 kube-worker-node2=== COMPLETE[ 10 ]: /home/vagrant/shell/12_kubeadm_prerequisite/4_hosts.sh ===
+=== PROGRESS[ 11 ]: /home/vagrant/shell/21_kubeadm/1_pull_config_images.sh ===
+[config/images] Pulled registry.k8s.io/kube-apiserver:v1.28.0
+[config/images] Pulled registry.k8s.io/kube-controller-manager:v1.28.0
+[config/images] Pulled registry.k8s.io/kube-scheduler:v1.28.0
+[config/images] Pulled registry.k8s.io/kube-proxy:v1.28.0
+[config/images] Pulled registry.k8s.io/pause:3.9
+[config/images] Pulled registry.k8s.io/etcd:3.5.9-0
+[config/images] Pulled registry.k8s.io/coredns/coredns:v1.10.1
+=== COMPLETE[ 11 ]: /home/vagrant/shell/21_kubeadm/1_pull_config_images.sh ===
+=== PROGRESS[ 12 ]: /home/vagrant/shell/21_kubeadm/2_install.sh ===
+[init] Using Kubernetes version: v1.28.0
+[preflight] Running pre-flight checks
+error execution phase preflight: [preflight] Some fatal errors occurred:
+	[ERROR Port-6443]: Port 6443 is in use
+	[ERROR Port-10259]: Port 10259 is in use
+	[ERROR Port-10257]: Port 10257 is in use
+	[ERROR FileAvailable--etc-kubernetes-manifests-kube-apiserver.yaml]: /etc/kubernetes/manifests/kube-apiserver.yaml already exists
+	[ERROR FileAvailable--etc-kubernetes-manifests-kube-controller-manager.yaml]: /etc/kubernetes/manifests/kube-controller-manager.yaml already exists
+	[ERROR FileAvailable--etc-kubernetes-manifests-kube-scheduler.yaml]: /etc/kubernetes/manifests/kube-scheduler.yaml already exists
+	[ERROR FileAvailable--etc-kubernetes-manifests-etcd.yaml]: /etc/kubernetes/manifests/etcd.yaml already exists
+	[ERROR Port-10250]: Port 10250 is in use
+	[ERROR Port-2379]: Port 2379 is in use
+	[ERROR Port-2380]: Port 2380 is in use
+	[ERROR DirAvailable--var-lib-etcd]: /var/lib/etcd is not empty
+[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
+To see the stack trace of this error execute with --v=5 or higher
+=== COMPLETE[ 12 ]: /home/vagrant/shell/21_kubeadm/2_install.sh ===
+=== PROGRESS[ 13 ]: /home/vagrant/shell/22_helm/0_install.sh ===
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 11345  100 11345    0     0  28105      0 --:--:-- --:--:-- --:--:-- 28151
+Downloading https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz
+Verifying checksum... Done.
+Preparing to install helm into /usr/local/bin
+helm installed into /usr/local/bin/helm
+=== COMPLETE[ 13 ]: /home/vagrant/shell/22_helm/0_install.sh ===
+=== PROGRESS[ 14 ]: /home/vagrant/shell/23_calico/0_install.sh ===
+Unable to connect to the server: dial tcp 192.168.10.11:6443: i/o timeout
+Unable to connect to the server: dial tcp 192.168.10.11:6443: i/o timeout
+=== COMPLETE[ 14 ]: /home/vagrant/shell/23_calico/0_install.sh ===
+=== PROGRESS[ 15 ]: /home/vagrant/shell/23_dockerhub/0_regcred.sh ===
+error: failed to create secret Post "https://kube-controller:6443/api/v1/namespaces/default/secrets?fieldManager=kubectl-create&fieldValidation=Strict": dial tcp 192.168.10.11:6443: i/o timeout
+=== COMPLETE[ 15 ]: /home/vagrant/shell/23_dockerhub/0_regcred.sh ===
+=== COMPLETE at 230818_001240 ===

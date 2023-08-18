@@ -61,7 +61,7 @@ if [ ! -d /sys/fs/cgroup/cgroup.controllers ]; then
   # (Opt.1) Ubuntu on Azure
 #   sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 systemd.unified_cgroup_hierarchy=1"/' /etc/default/grub.d/50-cloudimg-settings.cfg
   # (Opt.2) others
-  sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 systemd.unified_cgroup_hierarchy=1"/' /etc/default/grub
+  sudo sed -i 's/^GRUB_CMDLINE_LINUX="\(.*\)"/GRUB_CMDLINE_LINUX="\1 systemd.unified_cgroup_hierarchy=1"/' /etc/default/grub
   sudo update-grub
 fi
 
@@ -103,8 +103,6 @@ sudo sysctl --system
 
 sudo loginctl enable-linger $(whoami)
 # sudo chown -R $(whoami):$(whoami) /var/lib/containers/
-
-_CRIO_ROOTLESS=1
 
 # curl https://raw.githubusercontent.com/cri-o/cri-o/main/scripts/get | bash
 curl https://raw.githubusercontent.com/cri-o/cri-o/main/scripts/get | sudo bash

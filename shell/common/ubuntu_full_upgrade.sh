@@ -49,7 +49,7 @@ echo "============================================="
 echo "=== START: $0 at $HOME ===="
 echo "============================================="
 
-sudo apt-get update -yqq && sudo apt-get -yqq full-upgrade 
+sudo apt-get update -yqq && sudo apt-get -yqq upgrade 
 
 # remove cronjob
 sudo -u root /bin/bash -c "crontab -l | sed -e '/$CURRENT_SHELL_NAME/d' | crontab -"
