@@ -60,7 +60,7 @@ mkdir -p $USER_CONF_DIR
 cp -r /vagrant/conf/. $USER_CONF_DIR/
 
 mkdir -p $USER_SYS_DIR
-cp -r /vagrant/system/. $USER_SYS_DIR/
+cp -r /vagrant/shell/system/. $USER_SYS_DIR/
 
 sudo chown -R $USER:$USER $USER_SHELL_DIR
 sudo chown -R $USER:$USER $USER_VARIABLE_DIR

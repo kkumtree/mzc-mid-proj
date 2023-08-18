@@ -53,49 +53,6 @@ if [ ! -f /etc/subuid -o ! -f /etc/subgid ]; then
 fi
 
 ####################
-# (optional) cgroup v2 
-# need kernel 4.15 or later (recommended 5.2+)
-
-# chk cgroup v2
-
-if [ ! -d /sys/fs/cgroup/cgroup.controllers ]; then
-  echo "cgroup v2 is not set"
-  # (Opt.1) Ubuntu on Azure
-#   sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="\(.*\)"/GRUB_CMDLINE_LINUX_DEFAULT="\1 systemd.unified_cgroup_hierarchy=1"/' /etc/default/grub.d/50-cloudimg-settings.cfg
-  # (Opt.2) others
-  sudo sed -i 's/^GRUB_CMDLINE_LINUX="\(.*\)"/GRUB_CMDLINE_LINUX="systemd.unified_cgroup_hierarchy=1"/' /etc/default/grub
-  sudo update-grub
-fi
-
-# enable CPU/CPUSET, and I/O delegation
-# Delegate `cpuset` requires `systemd 244+``
-
-# if [ ! -f /etc/systemd/system/user.slice.d/50-cpu-cpuset-io-delegation.conf ]; then
-#   sudo mkdir -p /etc/systemd/system/user.slice.d
-#   sudo tee /etc/systemd/system/user.slice.d/50-cpu-cpuset-io-delegation.conf <<EOF
-
-sudo mkdir -p /etc/systemd/system/user@.service.d
-cat <<EOF | sudo tee /etc/systemd/system/user@.service.d/delegate.conf
-[Service]
-Delegate=cpu cpuset io memory pids
-EOF
-sudo systemctl daemon-reload
-
-####################
-# (optional) sysctl
-
-# allow ping without root
-
-cat <<EOF | sudo tee /etc/sysctl.d/99-rootless.conf
-net.ipv4.ping_group_range = 0 21474836476
-net.ipv4.ip_unprivileged_port_start=0
-EOF
-
-####################
-# Apply sysctl params without reboot
-sudo sysctl --system
-
-####################
 # add env to .bashrc
 
 echo "*^*CHECK CRI-O ENVIRONMENT^*^"
@@ -110,32 +67,19 @@ echo "*^*IS IT RIGHT?^*^"
 # sudo loginctl enable-linger $(whoami) 
 # OR bash --cgroup-manager=cgroupfs
 
-sudo loginctl enable-linger $(whoami)
+# sudo loginctl enable-linger $(whoami)
 # sudo chown -R $(whoami):$(whoami) /var/lib/containers/
 
 # curl https://raw.githubusercontent.com/cri-o/cri-o/main/scripts/get | bash
 curl https://raw.githubusercontent.com/cri-o/cri-o/main/scripts/get | sudo bash
 
 ####################
-# USE the distribution's runc
+# disable crun
 
-## Create the directory if it doesn't exist
-sudo mkdir -p /etc/crio/crio.conf.d/
-
-## Create the runc.conf file
-sudo tee /etc/crio/crio.conf.d/runc.conf <<EOF
-[crio.runtime.runtimes.runc]
-runtime_path = ""
-runtime_type = "oci"
-runtime_root = "/run/runc"
-EOF
-
-####################
-# enable overlay, cgroup
-
-if [ -d "$HOME/conf" ]; then
-  echo "SET overlay, cgroup"
-  sudo cp --no-preserve=all "$(find $HOME/conf/crio/custom -name *custom.conf)" /etc/crio/crio.conf
+if [ -f "/etc/crio/crio.conf.d/runc.conf" ]; then
+  if [ -f "/etc/crio/crio.conf.d/10-crun.conf" ]; then
+    sudo rm /etc/crio/crio.conf.d/10-crun.conf
+  fi
 fi
 
 ####################

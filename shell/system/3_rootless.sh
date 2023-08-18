@@ -56,7 +56,7 @@ sudo systemctl daemon-reload
 # allow ping without root
 
 cat <<EOF | sudo tee /etc/sysctl.d/99-rootless.conf
-net.ipv4.ping_group_range = 0 21474836476
+net.ipv4.ping_group_range = 0 2147483647
 net.ipv4.ip_unprivileged_port_start=0
 EOF
 
@@ -74,19 +74,28 @@ sudo mkdir -p /etc/crio/crio.conf.d/
 
 ## Create the runc.conf file
 sudo tee /etc/crio/crio.conf.d/runc.conf <<EOF
+[crio.runtime]
+conmon = ""
+conmon_cgroup = "pod"
+conmon_env = [
+]
+
 [crio.runtime.runtimes.runc]
 runtime_path = ""
 runtime_type = "oci"
 runtime_root = "/run/runc"
+
+allowed_annotations = [
+        "io.containers.trace-syscall",
+]
+
+monitor_path = ""
+monitor_cgroup = "pod"
+monitor_exec_cgroup = ""
+monitor_env = [
+        "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+]
 EOF
-
-####################
-# enable overlay, cgroup
-
-if [ -d "$HOME/conf" ]; then
-  echo "SET overlay, cgroup"
-  sudo cp --no-preserve=all "$(find $HOME/conf/crio/custom -name *custom.conf)" /etc/crio/crio.conf
-fi
 
 ####################
 # enable and start cri-o

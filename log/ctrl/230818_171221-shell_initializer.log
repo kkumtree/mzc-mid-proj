@@ -1,0 +1,153 @@
+=== START AT: 230818_171221 ===
+=== PROGRESS[ 1 ]: /home/vagrant/shell/11_apt_repository/1_install_utility.sh ===
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Readline
+debconf: (This frontend requires a controlling tty.)
+debconf: falling back to frontend: Teletype
+dpkg-preconfigure: unable to re-open stdin: 
+Selecting previously unselected package libnfsidmap1:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 63936 files and directories currently installed.)
+Preparing to unpack .../0-libnfsidmap1_1%3a2.6.1-1ubuntu1.2_amd64.deb ...
+Unpacking libnfsidmap1:amd64 (1:2.6.1-1ubuntu1.2) ...
+Selecting previously unselected package rpcbind.
+Preparing to unpack .../1-rpcbind_1.2.6-2build1_amd64.deb ...
+Unpacking rpcbind (1.2.6-2build1) ...
+Selecting previously unselected package keyutils.
+Preparing to unpack .../2-keyutils_1.6.1-2ubuntu3_amd64.deb ...
+Unpacking keyutils (1.6.1-2ubuntu3) ...
+Selecting previously unselected package nfs-common.
+Preparing to unpack .../3-nfs-common_1%3a2.6.1-1ubuntu1.2_amd64.deb ...
+Unpacking nfs-common (1:2.6.1-1ubuntu1.2) ...
+Selecting previously unselected package apt-transport-https.
+Preparing to unpack .../4-apt-transport-https_2.4.10_all.deb ...
+Unpacking apt-transport-https (2.4.10) ...
+Selecting previously unselected package libonig5:amd64.
+Preparing to unpack .../5-libonig5_6.9.7.1-2build1_amd64.deb ...
+Unpacking libonig5:amd64 (6.9.7.1-2build1) ...
+Selecting previously unselected package libjq1:amd64.
+Preparing to unpack .../6-libjq1_1.6-2.1ubuntu3_amd64.deb ...
+Unpacking libjq1:amd64 (1.6-2.1ubuntu3) ...
+Selecting previously unselected package jq.
+Preparing to unpack .../7-jq_1.6-2.1ubuntu3_amd64.deb ...
+Unpacking jq (1.6-2.1ubuntu3) ...
+Selecting previously unselected package uidmap.
+Preparing to unpack .../8-uidmap_1%3a4.8.1-2ubuntu2.1_amd64.deb ...
+Unpacking uidmap (1:4.8.1-2ubuntu2.1) ...
+Selecting previously unselected package gnupg2.
+Preparing to unpack .../9-gnupg2_2.2.27-3ubuntu2.1_all.deb ...
+Unpacking gnupg2 (2.2.27-3ubuntu2.1) ...
+Setting up gnupg2 (2.2.27-3ubuntu2.1) ...
+Setting up libnfsidmap1:amd64 (1:2.6.1-1ubuntu1.2) ...
+Setting up apt-transport-https (2.4.10) ...
+Setting up uidmap (1:4.8.1-2ubuntu2.1) ...
+Setting up rpcbind (1.2.6-2build1) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/rpcbind.service → /lib/systemd/system/rpcbind.service.
+Created symlink /etc/systemd/system/sockets.target.wants/rpcbind.socket → /lib/systemd/system/rpcbind.socket.
+Setting up keyutils (1.6.1-2ubuntu3) ...
+Setting up libonig5:amd64 (6.9.7.1-2build1) ...
+Setting up libjq1:amd64 (1.6-2.1ubuntu3) ...
+Setting up nfs-common (1:2.6.1-1ubuntu1.2) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+
+Creating config file /etc/idmapd.conf with new version
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+
+Creating config file /etc/nfs.conf with new version
+Adding system user `statd' (UID 114) ...
+Adding new user `statd' (UID 114) with group `nogroup' ...
+Not creating home directory `/var/lib/nfs'.
+Created symlink /etc/systemd/system/multi-user.target.wants/nfs-client.target → /lib/systemd/system/nfs-client.target.
+Created symlink /etc/systemd/system/remote-fs.target.wants/nfs-client.target → /lib/systemd/system/nfs-client.target.
+auth-rpcgss-module.service is a disabled or a static unit, not starting it.
+nfs-idmapd.service is a disabled or a static unit, not starting it.
+nfs-utils.service is a disabled or a static unit, not starting it.
+proc-fs-nfsd.mount is a disabled or a static unit, not starting it.
+rpc-gssd.service is a disabled or a static unit, not starting it.
+rpc-statd-notify.service is a disabled or a static unit, not starting it.
+rpc-statd.service is a disabled or a static unit, not starting it.
+rpc-svcgssd.service is a disabled or a static unit, not starting it.
+rpc_pipefs.target is a disabled or a static unit, not starting it.
+var-lib-nfs-rpc_pipefs.mount is a disabled or a static unit, not starting it.
+Setting up jq (1.6-2.1ubuntu3) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+=== COMPLETE[ 1 ]: /home/vagrant/shell/11_apt_repository/1_install_utility.sh ===
+=== PROGRESS[ 2 ]: /home/vagrant/shell/11_apt_repository/2_kubernetes_repository.sh ===
+deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /
+=== COMPLETE[ 2 ]: /home/vagrant/shell/11_apt_repository/2_kubernetes_repository.sh ===
+=== PROGRESS[ 3 ]: /home/vagrant/shell/11_apt_repository/3_apt_update.sh ===
+=== COMPLETE[ 3 ]: /home/vagrant/shell/11_apt_repository/3_apt_update.sh ===
+=== PROGRESS[ 4 ]: /home/vagrant/shell/12_apt_installation/1_install_crio.sh ===
+=============================================
+whoami: vagrant
+XDG_RUNTIME_DIR is SET: /run/user/1000
+_CRIO_ROOTLESS is SET: 1
+=============================================
+*^*CHECK CRI-O ENVIRONMENT^*^
+_CRIO_ROOTLESS=1
+XDG_RUNTIME_DIR=/run/user/1000
+*^*IS IT RIGHT?^*^
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0Welcome to the CRI-O install script!
+100  9178  100  9178    0     0  No architecture provided, using: amd64
+25Checking if all commands are available: curl jq tar
+244 Searching for latest version via marker file
+     0 --:--:-- --:--:-- --:--:-- 25283
+Found latest version d2e7a08a185a0ec6114d44ce84e71032b7a80c7e
+Downloading https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.d2e7a08a185a0ec6114d44ce84e71032b7a80c7e.tar.gz to /tmp/tmp.OfkIIGV54Z
+/tmp/tmp.OfkIIGV54Z /home/vagrant
+Installing CRI-O
++ install -d -m 755 /etc/cni/net.d
++ install -D -m 755 -t /opt/cni/bin cni-plugins/bandwidth cni-plugins/bridge cni-plugins/dhcp cni-plugins/dummy cni-plugins/firewall cni-plugins/host-device cni-plugins/host-local cni-plugins/ipvlan cni-plugins/loopback cni-plugins/macvlan cni-plugins/portmap cni-plugins/ptp cni-plugins/sbr cni-plugins/static cni-plugins/tap cni-plugins/tuning cni-plugins/vlan cni-plugins/vrf
++ install -D -m 644 -t /etc/cni/net.d contrib/11-crio-ipv4-bridge.conflist
++ install -D -m 755 -t /usr/local/bin bin/conmon
++ install -D -m 755 -t /usr/local/bin bin/crictl
++ install -d -m 755 /usr/local/share/bash-completion/completions
++ install -d -m 755 /usr/local/share/fish/completions
++ install -d -m 755 /usr/local/share/zsh/site-functions
++ install -d -m 755 /etc/containers
++ install -D -m 755 -t /usr/local/bin bin/crio-status
++ install -D -m 755 -t /usr/local/bin bin/crio
++ install -D -m 644 -t /etc etc/crictl.yaml
++ install -D -m 644 -t /usr/local/share/oci-umount/oci-umount.d etc/crio-umount.conf
++ install -D -m 644 -t /etc/crio etc/crio.conf
++ install -D -m 644 -t /etc/crio/crio.conf.d etc/10-crun.conf
++ install -D -m 644 -t /usr/local/share/man/man5 man/crio.conf.5
++ install -D -m 644 -t /usr/local/share/man/man5 man/crio.conf.d.5
++ install -D -m 644 -t /usr/local/share/man/man8 man/crio-status.8
++ install -D -m 644 -t /usr/local/share/man/man8 man/crio.8
++ install -D -m 644 -t /usr/local/share/bash-completion/completions completions/bash/crio
++ install -D -m 644 -t /usr/local/share/fish/completions completions/fish/crio.fish
++ install -D -m 644 -t /usr/local/share/zsh/site-functions completions/zsh/_crio
++ install -D -m 644 -t /etc/containers contrib/policy.json
++ install -D -m 644 -t /usr/local/lib/systemd/system contrib/crio.service
++ install -D -m 755 -t /usr/local/bin bin/pinns
++ install -D -m 755 -t /usr/local/bin bin/crun
++ command -v runc
++ install -D -m 755 -t /usr/local/bin bin/runc
++ '[' -n '' ']'
++ rm -rf -- /tmp/tmp.OfkIIGV54Z
+Created symlink /etc/systemd/system/cri-o.service → /usr/local/lib/systemd/system/crio.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/crio.service → /usr/local/lib/systemd/system/crio.service.
+=== COMPLETE[ 4 ]: /home/vagrant/shell/12_apt_installation/1_install_crio.sh ===
+=== COMPLETE at 230818_171243 ===
