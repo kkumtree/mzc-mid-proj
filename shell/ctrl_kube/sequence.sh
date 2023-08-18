@@ -45,15 +45,50 @@ NEXT_SHELL_PATH="$NEXT_SHELL_DIR/$NEXT_SHELL"
 
 #### END Logging Template ####
 
+###
+
+
+###
+
 echo "============================================="
-echo "=== START: $0"
+echo "=== START: $0 at $HOME"
+echo "=== UID: $UID"
+echo "=== USER: $(id -u)"
+
+###
+
+if [ ! -f $HOME/.bash_aliases ]; then
+  echo "^*^$HOME/.bash_aliases is not found^*^"
+  touch $HOME/.bash_aliases
+  echo "^*^$HOME/.bash_aliases is created^*^"
+fi
+
+
+if [ -z "$_CRIO_ROOTLESS" ]; then
+  echo "^*^_CRIO_ROOTLESS is set MANUALLY^*^"
+  _CRIO_ROOTLESS=1
+  export _CRIO_ROOTLESS
+  echo 'export _CRIO_ROOTLESS=1' >> $HOME/.bash_aliases
+fi
+
+if [ -z "$XDG_RUNTIME_DIR" ]; then
+  echo "^*^XDG_RUNTIME_DIR is set MANUALLY^*^"
+  XDG_RUNTIME_DIR=/run/user/$(id -u)
+  export XDG_RUNTIME_DIR
+fi
+
+###
+
+echo "=== XDG_RUNTIME_DIR: >> $XDG_RUNTIME_DIR <<"
+echo "=== _CRIO_ROOTLESS: >> $_CRIO_ROOTLESS <<"
 echo "============================================="
 
-sudo -u $USER /bin/bash -c "$NEXT_SHELL_PATH $USER_SHELL_DIR $TYPE"
+$NEXT_SHELL_PATH $USER_SHELL_DIR $TYPE
 
 # remove cronjob
 # sudo -u vagrant /bin/bash -c "crontab -l | sed -e s/\*\$PRE_CRON_SHELL\*/\#\1/ | crontab -"
-sudo -u root /bin/bash -c "crontab -l | sed -e '/$CURRENT_SHELL_NAME/d' | crontab -"
+crontab -l | sed -e "/$CURRENT_SHELL_NAME/d" | crontab -
+# sudo -u root /bin/bash -c "crontab -l | sed -e '/$CURRENT_SHELL_NAME/d' | crontab -"
 
 # # add cronjob
 # sudo -u root /bin/bash -c "cat <(crontab -l) <(echo \"$NEXT_JOB $NEXT_SHELL_PATH $TYPE | sudo tee 1>$LOG_PATH 2>&1 \") | crontab -"

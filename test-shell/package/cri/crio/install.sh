@@ -85,7 +85,8 @@ sudo systemctl daemon-reload
 
 cat <<EOF | sudo tee /etc/sysctl.d/99-rootless.conf
 # net.ipv4.ping_group_range=0 65535
-net.ipv4.ping_group_range=0 2147483647
+net.ipv4.ping_group_range = 0 2147483647
+net.ipv4.ip_unprivileged_port_start=0
 EOF
 
 ####################

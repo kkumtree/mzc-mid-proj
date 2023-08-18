@@ -35,9 +35,10 @@ USER="vagrant"
 USER_HOME="/home/$USER"
 USER_SHELL_DIR="$USER_HOME/shell"
 USER_VARIABLE_DIR="$USER_HOME/variable"
+USER_CONF_DIR="$USER_HOME/conf"
 
-NEXT_JOB="@reboot sudo -u $USER"
-NEXT_SHELL="ubuntu_full_upgrade.sh"
+NEXT_JOB="@reboot"
+NEXT_SHELL="ubuntu_upgrade.sh"
 NEXT_SHELL_DIR="$USER_SHELL_DIR"
 NEXT_SHELL_PATH="$NEXT_SHELL_DIR/$NEXT_SHELL"
 
@@ -54,10 +55,14 @@ cp -r /vagrant/shell/$TYPE\_kube/. $USER_SHELL_DIR/
 mkdir -p $USER_VARIABLE_DIR
 cp -r /vagrant/variable/. $USER_VARIABLE_DIR/
 
+mkdir -p $USER_CONF_DIR
+cp -r /vagrant/conf/. $USER_CONF_DIR/
+
 sudo chown -R $USER:$USER $USER_SHELL_DIR
 sudo chown -R $USER:$USER $USER_VARIABLE_DIR
+sudo chown -R $USER:$USER $USER_CONF_DIR
 
-sudo /bin/bash -c "cat <(crontab -l) <(echo \"$NEXT_JOB $NEXT_SHELL_PATH $TYPE\") | crontab -"
+sudo -u $USER /bin/bash -c "cat <(crontab -l) <(echo \"$NEXT_JOB $NEXT_SHELL_PATH $TYPE\") | crontab -"
 
 echo "============================================="
 echo "=== !WAIT!: cronjob for $NEXT_SHELL"

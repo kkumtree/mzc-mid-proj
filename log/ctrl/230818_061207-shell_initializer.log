@@ -1,4 +1,4 @@
-=== START AT: 230818_013302 ===
+=== START AT: 230818_061207 ===
 === PROGRESS[ 1 ]: /home/vagrant/shell/11_apt_package/1_install_utility.sh ===
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
@@ -97,7 +97,11 @@ deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io
 === PROGRESS[ 3 ]: /home/vagrant/shell/11_apt_package/3_apt_update.sh ===
 === COMPLETE[ 3 ]: /home/vagrant/shell/11_apt_package/3_apt_update.sh ===
 === PROGRESS[ 4 ]: /home/vagrant/shell/11_apt_package/4_install_crio.sh ===
-XDG_RUNTIME_DIR is not set
+=============================================
+whoami: vagrant
+XDG_RUNTIME_DIR is SET: /run/user/1000
+_CRIO_ROOTLESS is SET: 1
+=============================================
 cgroup v2 is not set
 Sourcing file `/etc/default/grub'
 Sourcing file `/etc/default/grub.d/50-cloudimg-settings.cfg'
@@ -156,16 +160,20 @@ fs.protected_symlinks = 1
 net.ipv4.ping_group_range = 0 2147483647
 * Applying /etc/sysctl.d/99-sysctl.conf ...
 * Applying /etc/sysctl.conf ...
+*^*CHECK CRI-O ENVIRONMENT^*^
+_CRIO_ROOTLESS=1
+XDG_RUNTIME_DIR=/run/user/1000
+*^*IS IT RIGHT?^*^
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0Welcome to the CRI-O install script!
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0Welcome to the CRI-O install script!
 No architecture provided, using: amd64
 Checking if all commands are available: curl jq tar
 Searching for latest version via marker file
-100  9178  100  9178    0     0  19821      0 --:--:-- --:--:-- --:--:-- 19822
+100  9178  100  9178    0     0  21034      0 --:--:-- --:--:-- --:--:-- 21002
 Found latest version d2e7a08a185a0ec6114d44ce84e71032b7a80c7e
-Downloading https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.d2e7a08a185a0ec6114d44ce84e71032b7a80c7e.tar.gz to /tmp/tmp.eMo6VXkfaf
-/tmp/tmp.eMo6VXkfaf ~
+Downloading https://storage.googleapis.com/cri-o/artifacts/cri-o.amd64.d2e7a08a185a0ec6114d44ce84e71032b7a80c7e.tar.gz to /tmp/tmp.H7A8m9mHNn
+/tmp/tmp.H7A8m9mHNn /home/vagrant
 Installing CRI-O
 + install -d -m 755 /etc/cni/net.d
 + install -D -m 755 -t /opt/cni/bin cni-plugins/bandwidth cni-plugins/bridge cni-plugins/dhcp cni-plugins/dummy cni-plugins/firewall cni-plugins/host-device cni-plugins/host-local cni-plugins/ipvlan cni-plugins/loopback cni-plugins/macvlan cni-plugins/portmap cni-plugins/ptp cni-plugins/sbr cni-plugins/static cni-plugins/tap cni-plugins/tuning cni-plugins/vlan cni-plugins/vrf
@@ -196,13 +204,16 @@ Installing CRI-O
 + command -v runc
 + install -D -m 755 -t /usr/local/bin bin/runc
 + '[' -n '' ']'
-+ rm -rf -- /tmp/tmp.eMo6VXkfaf
++ rm -rf -- /tmp/tmp.H7A8m9mHNn
 [crio.runtime.runtimes.runc]
 runtime_path = ""
 runtime_type = "oci"
 runtime_root = "/run/runc"
+SET overlay, cgroup
 Created symlink /etc/systemd/system/cri-o.service → /usr/local/lib/systemd/system/crio.service.
 Created symlink /etc/systemd/system/multi-user.target.wants/crio.service → /usr/local/lib/systemd/system/crio.service.
+Job for crio.service failed because the control process exited with error code.
+See "systemctl status crio.service" and "journalctl -xeu crio.service" for details.
 === COMPLETE[ 4 ]: /home/vagrant/shell/11_apt_package/4_install_crio.sh ===
 === PROGRESS[ 5 ]: /home/vagrant/shell/11_apt_package/5_install_podman.sh ===
 debconf: unable to initialize frontend: Dialog
@@ -366,8 +377,7 @@ No containers need to be restarted.
 No user sessions are running outdated binaries.
 
 No VM guests are running outdated hypervisor (qemu) binaries on this host.
-cannot chdir to /root: Permission denied
-Error: chown /home/vagrant/.local/share/containers/storage/overlay/l: operation not permitted
+Login Succeeded!
 === COMPLETE[ 5 ]: /home/vagrant/shell/11_apt_package/5_install_podman.sh ===
 === PROGRESS[ 6 ]: /home/vagrant/shell/11_apt_package/6_3_install_kubernetes.sh ===
 debconf: unable to initialize frontend: Dialog
@@ -488,6 +498,8 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward = 1
 === COMPLETE[ 8 ]: /home/vagrant/shell/12_kubeadm_prerequisite/2_runtime.sh ===
 === PROGRESS[ 9 ]: /home/vagrant/shell/12_kubeadm_prerequisite/3_enable_service.sh ===
+Job for crio.service failed because the control process exited with error code.
+See "systemctl status crio.service" and "journalctl -xeu crio.service" for details.
 === COMPLETE[ 9 ]: /home/vagrant/shell/12_kubeadm_prerequisite/3_enable_service.sh ===
 === PROGRESS[ 10 ]: /home/vagrant/shell/12_kubeadm_prerequisite/4_hosts.sh ===
 # Content: hosts file for kubernetes cluster
@@ -500,140 +512,35 @@ net.ipv4.ip_forward = 1
 192.168.17.102 kube-worker-node1
 192.168.17.103 kube-worker-node2=== COMPLETE[ 10 ]: /home/vagrant/shell/12_kubeadm_prerequisite/4_hosts.sh ===
 === PROGRESS[ 11 ]: /home/vagrant/shell/21_kubeadm/1_pull_config_images.sh ===
-[config/images] Pulled registry.k8s.io/kube-apiserver:v1.28.0
-[config/images] Pulled registry.k8s.io/kube-controller-manager:v1.28.0
-[config/images] Pulled registry.k8s.io/kube-scheduler:v1.28.0
-[config/images] Pulled registry.k8s.io/kube-proxy:v1.28.0
-[config/images] Pulled registry.k8s.io/pause:3.9
-[config/images] Pulled registry.k8s.io/etcd:3.5.9-0
-[config/images] Pulled registry.k8s.io/coredns/coredns:v1.10.1
+failed to pull image "registry.k8s.io/kube-apiserver:v1.28.0": output: time="2023-08-18T06:12:57Z" level=fatal msg="validate service connection: validate CRI v1 image API for endpoint \"unix:///var/run/containerd/containerd.sock\": rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial unix /var/run/containerd/containerd.sock: connect: no such file or directory\""
+, error: exit status 1
+To see the stack trace of this error execute with --v=5 or higher
 === COMPLETE[ 11 ]: /home/vagrant/shell/21_kubeadm/1_pull_config_images.sh ===
 === PROGRESS[ 12 ]: /home/vagrant/shell/21_kubeadm/2_install.sh ===
 [init] Using Kubernetes version: v1.28.0
 [preflight] Running pre-flight checks
-[preflight] Pulling images required for setting up a Kubernetes cluster
-[preflight] This might take a minute or two, depending on the speed of your internet connection
-[preflight] You can also perform this action in beforehand using 'kubeadm config images pull'
-[certs] Using certificateDir folder "/etc/kubernetes/pki"
-[certs] Generating "ca" certificate and key
-[certs] Generating "apiserver" certificate and key
-[certs] apiserver serving cert is signed for DNS names [kube-controller kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 192.168.17.101]
-[certs] Generating "apiserver-kubelet-client" certificate and key
-[certs] Generating "front-proxy-ca" certificate and key
-[certs] Generating "front-proxy-client" certificate and key
-[certs] Generating "etcd/ca" certificate and key
-[certs] Generating "etcd/server" certificate and key
-[certs] etcd/server serving cert is signed for DNS names [kube-controller localhost] and IPs [192.168.17.101 127.0.0.1 ::1]
-[certs] Generating "etcd/peer" certificate and key
-[certs] etcd/peer serving cert is signed for DNS names [kube-controller localhost] and IPs [192.168.17.101 127.0.0.1 ::1]
-[certs] Generating "etcd/healthcheck-client" certificate and key
-[certs] Generating "apiserver-etcd-client" certificate and key
-[certs] Generating "sa" key and public key
-[kubeconfig] Using kubeconfig folder "/etc/kubernetes"
-[kubeconfig] Writing "admin.conf" kubeconfig file
-[kubeconfig] Writing "kubelet.conf" kubeconfig file
-[kubeconfig] Writing "controller-manager.conf" kubeconfig file
-[kubeconfig] Writing "scheduler.conf" kubeconfig file
-[etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"
-[control-plane] Using manifest folder "/etc/kubernetes/manifests"
-[control-plane] Creating static Pod manifest for "kube-apiserver"
-[control-plane] Creating static Pod manifest for "kube-controller-manager"
-[control-plane] Creating static Pod manifest for "kube-scheduler"
-[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
-[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
-[kubelet-start] Starting the kubelet
-[wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s
-[apiclient] All control plane components are healthy after 5.002915 seconds
-[upload-config] Storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace
-[kubelet] Creating a ConfigMap "kubelet-config" in namespace kube-system with the configuration for the kubelets in the cluster
-[upload-certs] Storing the certificates in Secret "kubeadm-certs" in the "kube-system" Namespace
-[upload-certs] Using certificate key:
-837023deb493d60a6a15f6abaeaf3843524a2cee58e62a8bc7e08983f81a90d4
-[mark-control-plane] Marking the node kube-controller as control-plane by adding the labels: [node-role.kubernetes.io/control-plane node.kubernetes.io/exclude-from-external-load-balancers]
-[mark-control-plane] Marking the node kube-controller as control-plane by adding the taints [node-role.kubernetes.io/control-plane:NoSchedule]
-[bootstrap-token] Using token: pddvp4.fad0aw7m4el1j9ub
-[bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles
-[bootstrap-token] Configured RBAC rules to allow Node Bootstrap tokens to get nodes
-[bootstrap-token] Configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
-[bootstrap-token] Configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
-[bootstrap-token] Configured RBAC rules to allow certificate rotation for all node client certificates in the cluster
-[bootstrap-token] Creating the "cluster-info" ConfigMap in the "kube-public" namespace
-[kubelet-finalize] Updating "/etc/kubernetes/kubelet.conf" to point to a rotatable kubelet client certificate and key
-[addons] Applied essential addon: CoreDNS
-[addons] Applied essential addon: kube-proxy
-
-Your Kubernetes control-plane has initialized successfully!
-
-To start using your cluster, you need to run the following as a regular user:
-
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
-Alternatively, if you are the root user, you can run:
-
-  export KUBECONFIG=/etc/kubernetes/admin.conf
-
-You should now deploy a pod network to the cluster.
-Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
-  https://kubernetes.io/docs/concepts/cluster-administration/addons/
-
-You can now join any number of the control-plane node running the following command on each as root:
-
-  kubeadm join kube-controller:6443 --token pddvp4.fad0aw7m4el1j9ub \
-	--discovery-token-ca-cert-hash sha256:5e48ed9d80de900854766877b0f3f6a8e385f5423c3c45a0ee6eab23d07cf2b0 \
-	--control-plane --certificate-key 837023deb493d60a6a15f6abaeaf3843524a2cee58e62a8bc7e08983f81a90d4
-
-Please note that the certificate-key gives access to cluster sensitive data, keep it secret!
-As a safeguard, uploaded-certs will be deleted in two hours; If necessary, you can use
-"kubeadm init phase upload-certs --upload-certs" to reload certs afterward.
-
-Then you can join any number of worker nodes by running the following on each as root:
-
-kubeadm join kube-controller:6443 --token pddvp4.fad0aw7m4el1j9ub \
-	--discovery-token-ca-cert-hash sha256:5e48ed9d80de900854766877b0f3f6a8e385f5423c3c45a0ee6eab23d07cf2b0 
+error execution phase preflight: [preflight] Some fatal errors occurred:
+	[ERROR CRI]: container runtime is not running: output: time="2023-08-18T06:12:58Z" level=fatal msg="validate service connection: validate CRI v1 runtime API for endpoint \"unix://var/run/crio/crio.sock\": rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial unix /run/crio/crio.sock: connect: no such file or directory\""
+, error: exit status 1
+[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`
+To see the stack trace of this error execute with --v=5 or higher
+cp: cannot stat '/etc/kubernetes/admin.conf': No such file or directory
+chown: cannot access '/home/vagrant/.kube/config': No such file or directory
 === COMPLETE[ 12 ]: /home/vagrant/shell/21_kubeadm/2_install.sh ===
 === PROGRESS[ 13 ]: /home/vagrant/shell/22_helm/0_install.sh ===
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 11345  100 11345    0     0  21903      0 --:--:-- --:--:-- --:--:-- 21943
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100 11345  100 11345    0     0  32663      0 --:--:-- --:--:-- --:--:-- 32694
 Downloading https://get.helm.sh/helm-v3.12.3-linux-amd64.tar.gz
 Verifying checksum... Done.
 Preparing to install helm into /usr/local/bin
 helm installed into /usr/local/bin/helm
 === COMPLETE[ 13 ]: /home/vagrant/shell/22_helm/0_install.sh ===
 === PROGRESS[ 14 ]: /home/vagrant/shell/23_calico/0_install.sh ===
-namespace/tigera-operator created
-customresourcedefinition.apiextensions.k8s.io/bgpconfigurations.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/bgpfilters.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/bgppeers.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/blockaffinities.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/caliconodestatuses.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/clusterinformations.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/felixconfigurations.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/globalnetworkpolicies.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/globalnetworksets.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/hostendpoints.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/ipamblocks.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/ipamconfigs.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/ipamhandles.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/ippools.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/ipreservations.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/kubecontrollersconfigurations.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/networkpolicies.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/networksets.crd.projectcalico.org created
-customresourcedefinition.apiextensions.k8s.io/apiservers.operator.tigera.io created
-customresourcedefinition.apiextensions.k8s.io/imagesets.operator.tigera.io created
-customresourcedefinition.apiextensions.k8s.io/installations.operator.tigera.io created
-customresourcedefinition.apiextensions.k8s.io/tigerastatuses.operator.tigera.io created
-serviceaccount/tigera-operator created
-clusterrole.rbac.authorization.k8s.io/tigera-operator created
-clusterrolebinding.rbac.authorization.k8s.io/tigera-operator created
-deployment.apps/tigera-operator created
-installation.operator.tigera.io/default created
-apiserver.operator.tigera.io/default created
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
 === COMPLETE[ 14 ]: /home/vagrant/shell/23_calico/0_install.sh ===
 === PROGRESS[ 15 ]: /home/vagrant/shell/23_dockerhub/0_regcred.sh ===
-secret/regcred created
+error: failed to create secret Post "http://localhost:8080/api/v1/namespaces/default/secrets?fieldManager=kubectl-create&fieldValidation=Strict": dial tcp 127.0.0.1:8080: connect: connection refused
 === COMPLETE[ 15 ]: /home/vagrant/shell/23_dockerhub/0_regcred.sh ===
-=== COMPLETE at 230818_013530 ===
+=== COMPLETE at 230818_061308 ===

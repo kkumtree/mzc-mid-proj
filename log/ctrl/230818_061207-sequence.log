@@ -1,0 +1,15 @@
+=============================================
+=== START: /home/vagrant/shell/sequence.sh at /home/vagrant
+=== UID: 1000
+=== USER: 1000
+^*^/home/vagrant/.bash_aliases is not found^*^
+^*^/home/vagrant/.bash_aliases is created^*^
+^*^_CRIO_ROOTLESS is set MANUALLY^*^
+^*^XDG_RUNTIME_DIR is set MANUALLY^*^
+=== XDG_RUNTIME_DIR: >> /run/user/1000 <<
+=== _CRIO_ROOTLESS: >> 1 <<
+=============================================
+=== COMPLETE: /home/vagrant/shell/sequence.sh ===
+=============================================
+=== !CONGRAT!: kube-controller is ready
+=============================================

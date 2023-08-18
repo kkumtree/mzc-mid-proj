@@ -36,7 +36,8 @@ USER_HOME="/home/$USER"
 USER_SHELL_DIR="$USER_HOME/shell"
 # USER_VARIABLE_DIR="$USER_HOME/variable"
 
-NEXT_JOB="@reboot sudo"
+NEXT_JOB="@reboot"
+# NEXT_JOB="@reboot sudo"
 NEXT_SHELL_DIR="$USER_SHELL_DIR"
 NEXT_SHELL="sequence.sh"
 NEXT_SHELL_PATH="$NEXT_SHELL_DIR/$NEXT_SHELL"
@@ -52,10 +53,11 @@ echo "============================================="
 sudo apt-get update -yqq && sudo apt-get -yqq upgrade 
 
 # remove cronjob
-sudo -u root /bin/bash -c "crontab -l | sed -e '/$CURRENT_SHELL_NAME/d' | crontab -"
+crontab -l | sed -e "/$CURRENT_SHELL_NAME/d" | crontab -
 
 # add cronjob
-sudo -u root /bin/bash -c "cat <(crontab -l) <(echo \"$NEXT_JOB $NEXT_SHELL_PATH $TYPE\") | crontab -"
+cat <(crontab -l) <(echo "$NEXT_JOB $NEXT_SHELL_PATH $TYPE") | crontab -
+# sudo -u root /bin/bash -c "cat <(crontab -l) <(echo \"$NEXT_JOB $NEXT_SHELL_PATH $TYPE\") | crontab -"
 
 echo "=== COMPLETE: $0 ==="
 
