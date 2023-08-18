@@ -52,11 +52,15 @@ echo "============================================="
 
 sudo apt-get update -yqq && sudo apt-get -yqq upgrade 
 
+if [ $TYPE = "ctrl" -o $TYPE = "node" ]; then
+  /bin/bash /vagrant/shell/shell_initializer.sh /vagrant/system sys
+fi
+
 # remove cronjob
 crontab -l | sed -e "/$CURRENT_SHELL_NAME/d" | crontab -
 
 # add cronjob
-cat <(crontab -l) <(echo "$NEXT_JOB $NEXT_SHELL_PATH $TYPE") | crontab -
+# cat <(crontab -l) <(echo "$NEXT_JOB $NEXT_SHELL_PATH $TYPE") | crontab -
 # sudo -u root /bin/bash -c "cat <(crontab -l) <(echo \"$NEXT_JOB $NEXT_SHELL_PATH $TYPE\") | crontab -"
 
 echo "=== COMPLETE: $0 ==="
@@ -67,4 +71,4 @@ echo "============================================="
 
 echo "==== Complete $0 at $HOME ===="
 
-sudo reboot -f
+# sudo reboot -f

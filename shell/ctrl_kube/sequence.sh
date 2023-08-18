@@ -29,6 +29,16 @@ exec 3>&1 4>&2
 trap 'exec 2>&4 1>&3' 0 1 2 3
 exec 1>$LOG_PATH 2>&1
 
+# ## Interrupt for system
+
+# if [ $TYPE = "sys" ]; then
+#   echo "============================================="
+#   echo "=== INTERRUPT: SYSTEM SETUP after upgrade ==="
+#   echo "============================================="
+#   /bin/bash /vagrant/shell/shell_initializer.sh /vagrant/shell/$TYPE $TYPE
+#   exit 0
+# fi
+
 # ### Next Job
 
 USER="vagrant"

@@ -36,6 +36,7 @@ USER_HOME="/home/$USER"
 USER_SHELL_DIR="$USER_HOME/shell"
 USER_VARIABLE_DIR="$USER_HOME/variable"
 USER_CONF_DIR="$USER_HOME/conf"
+USER_SYS_DIR="$USER_HOME/system"
 
 NEXT_JOB="@reboot"
 NEXT_SHELL="ubuntu_upgrade.sh"
@@ -58,9 +59,13 @@ cp -r /vagrant/variable/. $USER_VARIABLE_DIR/
 mkdir -p $USER_CONF_DIR
 cp -r /vagrant/conf/. $USER_CONF_DIR/
 
+mkdir -p $USER_SYS_DIR
+cp -r /vagrant/system/. $USER_SYS_DIR/
+
 sudo chown -R $USER:$USER $USER_SHELL_DIR
 sudo chown -R $USER:$USER $USER_VARIABLE_DIR
 sudo chown -R $USER:$USER $USER_CONF_DIR
+sudo chown -R $USER:$USER $USER_SYS_DIR
 
 sudo -u $USER /bin/bash -c "cat <(crontab -l) <(echo \"$NEXT_JOB $NEXT_SHELL_PATH $TYPE\") | crontab -"
 

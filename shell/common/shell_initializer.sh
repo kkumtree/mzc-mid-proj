@@ -49,6 +49,27 @@ if [[ ! -d "$INPUT_DIR" ]]; then
   exit 1
 fi
 
+## interrupt for system
+
+if [ $TYPE = "sys" ]; then
+  echo "============================================="
+  echo "=== INTERRUPT: SYSTEM SETUP after upgrade ==="
+  echo "============================================="
+  for var in $INPUT_DIR/*.sh; do
+    if [ -f "$var" ]; then
+      echo "=== PROGRESS[ $LOOP_CNT ]: $var ==="
+      sudo chmod +x $var
+      # sudo su - vagrant /bin/bash $var
+      /bin/bash $var $TYPE
+      echo "=== COMPLETE[ $LOOP_CNT ]: $var ==="
+      ((LOOP_CNT++))
+    fi
+  done
+  exit 0
+fi
+
+##
+
 echo "=== START AT: $LOG_TIME ==="
 for var in $INPUT_DIR/*/*.sh; do
   if [ -f "$var" ]; then

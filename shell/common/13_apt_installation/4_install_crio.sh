@@ -30,17 +30,6 @@ echo "XDG_RUNTIME_DIR is SET: $XDG_RUNTIME_DIR"
 echo "_CRIO_ROOTLESS is SET: $_CRIO_ROOTLESS"
 echo "============================================="
 
-# (optional) run containers automatically on system start-up
-# $ sudo loginctl enable-linger $(whoami)
-
-# (optional) enable dbus user session for systemd, cgroup v2
-# $ systemctl --user is-active dbus
-#
-# if not automatically started, run:
-# $ systemctl --user start dbus
-# and you may
-# $ systemctl --user enable --now dbus
-
 ####################
 # /etc/subuid, /etc/subgid
 
@@ -96,11 +85,10 @@ sudo systemctl daemon-reload
 # (optional) sysctl
 
 # allow ping without root
-# $ sudo sysctl -w net.ipv4.ping_group_range="0 65535"
 
 cat <<EOF | sudo tee /etc/sysctl.d/99-rootless.conf
-# net.ipv4.ping_group_range=0 65535
-net.ipv4.ping_group_range=0 2147483647
+net.ipv4.ping_group_range = 0 21474836476
+net.ipv4.ip_unprivileged_port_start=0
 EOF
 
 ####################
