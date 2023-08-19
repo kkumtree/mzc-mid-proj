@@ -104,6 +104,6 @@ plugin_dirs = [
 EOF
 
 ####################
-# enable and start cri-o
+# enable settings
 
 sudo systemctl daemon-reload
