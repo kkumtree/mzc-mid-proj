@@ -4,4 +4,4 @@ variable/dockerhub/*
 .vagrant
 log/*/*.log
 
-!log/*/*APPEAR
+!log/*/*.md

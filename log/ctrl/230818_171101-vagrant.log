@@ -1,8 +1,0 @@
-==== Start /vagrant/shell/common/vagrant.sh at /root ====
-cp: cannot stat '/vagrant/variable/.': No such file or directory
-no crontab for vagrant
-=============================================
-=== !WAIT!: cronjob for ubuntu_upgrade.sh
-=============================================
-==== Complete /vagrant/shell/common/vagrant.sh at /root ====
-Rebooting.
