@@ -24,12 +24,9 @@ Vagrant.configure("2") do |config|
             vb.memory = 4096
         end
         wn1.vm.network "private_network", ip: "192.168.17.102"
-        wn1.vm.provision "shell", inline: <<-SCRIPT
-            mkdir -p /home/vagrant/shell/
-            sudo cp -r /vagrant/shell/3-kube-nodes/. /home/vagrant/shell/
-            /bin/bash /home/vagrant/shell/nodes-full-upgrade.sh
-        SCRIPT
-        end
+        wn1.vm.provision "shell",
+            inline: "/bin/bash /vagrant/shell/common/vagrant.sh node"
+    end
     
     config.vm.define "wn2" do |wn2|
         wn2.vm.hostname = "kube-worker-node2"
@@ -38,12 +35,9 @@ Vagrant.configure("2") do |config|
             vb.cpus = 4
             vb.memory = 4096
         end
-        wn2.vm.network "private_network", ip: "192.168.10.103"
-        wn2.vm.provision "shell", inline: <<-SCRIPT
-            mkdir -p /home/vagrant/shell/
-            sudo cp -r /vagrant/shell/3-kube-nodes/. /home/vagrant/shell/
-            /bin/bash /home/vagrant/shell/nodes-full-upgrade.sh
-        SCRIPT
+        wn2.vm.network "private_network", ip: "192.168.17.103"
+        wn2.vm.provision "shell",
+            inline: "/bin/bash /vagrant/shell/common/vagrant.sh node"
     end
     
     # nginx LB 기능 활용해서 NodePosrt 로 공개된 모든 노드에 서비스 배포
