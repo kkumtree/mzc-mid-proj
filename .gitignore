@@ -5,3 +5,4 @@ variable/dockerhub/*
 log/*/*.log
 
 !log/*/*.md
+.
