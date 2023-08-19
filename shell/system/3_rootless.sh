@@ -95,6 +95,12 @@ monitor_exec_cgroup = ""
 monitor_env = [
         "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
 ]
+
+[crio.network]
+network_dir = "/etc/cni/net.d"
+plugin_dirs = [
+  "opt/cni/bin",
+]
 EOF
 
 ####################
