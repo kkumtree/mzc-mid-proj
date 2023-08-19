@@ -1,0 +1,9 @@
+# Content: hosts file for kubernetes cluster
+
+# loopback
+127.0.0.1 localhost
+
+# Vagrant setting
+192.168.17.101 kube-controller
+192.168.17.102 kube-worker-node1
+192.168.17.103 kube-worker-node2
