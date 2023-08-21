@@ -20,10 +20,11 @@ if [[ -z "$DOCKER_SERVER" || -z "$DOCKER_USERNAME" || -z "$DOCKER_PASSWORD" ]]; 
   exit 1
 fi
 
-kubectl create namespace kube-cred
+DOCKER_SERVER=$(echo $DOCKER_SERVER | tr -d '\n\t\r')
+DOCKER_USERNAME=$(echo $DOCKER_USERNAME | tr -d '\n\t\r')
+DOCKER_PASSWORD=$(echo $DOCKER_PASSWORD | tr -d '\n\t\r')
 
 kubectl create secret docker-registry regcred \
-  --namespace=kube-cred \
   --docker-server=$DOCKER_SERVER \
   --docker-username=$DOCKER_USERNAME \
   --docker-password=$DOCKER_PASSWORD

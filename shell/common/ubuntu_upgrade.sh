@@ -59,6 +59,16 @@ fi
 # remove cronjob
 crontab -l | sed -e "/$CURRENT_SHELL_NAME/d" | crontab -
 
+# interrupt `nfs` TYPE
+
+# if [ $TYPE = "nfs" ]; then
+#   echo "==== nfs set-up completed $0 at $HOME ===="
+#   echo "============================================="
+#   echo "=== !CONGRAT!: nfs is ready, USE after reboot"
+#   echo "============================================="
+#   sudo reboot -f
+# fi
+
 # add cronjob
 cat <(crontab -l) <(echo "$NEXT_JOB $NEXT_SHELL_PATH $TYPE") | crontab -
 # sudo -u root /bin/bash -c "cat <(crontab -l) <(echo \"$NEXT_JOB $NEXT_SHELL_PATH $TYPE\") | crontab -"

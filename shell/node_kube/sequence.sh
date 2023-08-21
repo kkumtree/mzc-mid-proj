@@ -106,5 +106,5 @@ crontab -l | sed -e "/$CURRENT_SHELL_NAME/d" | crontab -
 echo "=== COMPLETE: $0 ==="
 
 echo "============================================="
-echo "=== !CONGRAT!: $TYPE is ready"
+echo "=== !CONGRAT!: kube-$TYPE is ready"
 echo "============================================="

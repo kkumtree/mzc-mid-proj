@@ -31,6 +31,10 @@ if [[ -z "$API_SERVER_ADVERTISE_ADDRESS" || -z "$POD_NETWORK_CIDR" || -z "$CONTR
   exit 1
 fi
 
+export API_SERVER_ADVERTISE_ADDRESS
+export POD_NETWORK_CIDR
+export CONTROL_PLANE_ENDPOINT
+
 # https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 # https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl
 # https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management

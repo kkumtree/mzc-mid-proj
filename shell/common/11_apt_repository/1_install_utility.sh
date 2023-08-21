@@ -7,4 +7,5 @@ sudo apt-get install -yqq \
   nfs-common \
   jq \
   dbus-user-session uidmap \
-  libseccomp2
+  libseccomp2 \
+  make

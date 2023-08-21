@@ -33,7 +33,7 @@ source $DOT_ENV
 
 cat <<EOF | sudo tee /etc/containers/registries.conf
 [registries.search]
-registries = ['docker.io']
+registries = ['docker.io', 'quay.io', 'registry.fedoraproject.org', 'registry.access.redhat.com', 'registry.centos.org']
 EOF
 
 sudo systemctl restart podman --wait

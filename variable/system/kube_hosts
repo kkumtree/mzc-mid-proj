@@ -1,9 +1,16 @@
-# Content: hosts file for kubernetes cluster
+127.0.0.1       localhost
 
-# loopback
-127.0.0.1 localhost
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost   ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+127.0.1.1       ubuntu-jammy    ubuntu-jammy
 
-# Vagrant setting
-192.168.17.101 kube-controller
-192.168.17.102 kube-worker-node1
-192.168.17.103 kube-worker-node2
+# Vagrant setup
+192.168.17.100 kube-controller
+192.168.17.101 kube-worker-node1
+192.168.17.102 kube-worker-node2
+192.168.17.103 kube-worker-node3
